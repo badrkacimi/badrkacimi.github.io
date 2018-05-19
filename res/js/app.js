@@ -88,34 +88,6 @@ $(window).load(function() {
     //particles
     particlesJS.load('main-header', 'ext/js/particleconfignasa.json');
 
-    //Portfolio Shuffle-Plugin Config use DeSandro's plugin to make sure
-    //images have loaded before instantiating shuffle to avoid height bugs
-    $('#showcase-container').imagesLoaded(function() {
-
-		var filtrOptions = {
-			delay: 25,
-			filterOutCss: {
-				opacity: 0,
-				transform: 'scale(0.75) skewY(20deg)'
-			},
-			filterInCss: {
-				opacity: 1,
-				transform: 'scale(1) skewY(0)'
-			}
-		};
-
-		var filterizd = $('.showcase-container').filterizr(filtrOptions);
-
-        $('.portfolio-nav li').click(function() {
-            var item = $(this);
-
-            $('.portfolio-nav li').removeClass('active-tab');
-            item.addClass('active-tab');
-        });
-
-    });
-	
-
     //typewriter
     $('.welcome-box p').type(function() {
         $('.welcome-box h1').animate({opacity: 1}, 1000, function() {
