@@ -90,8 +90,8 @@ $(window).load(function() {
 
     //typewriter
     $('.welcome-box p').type(function() {
-        $('.welcome-box h1').animate({opacity: 1}, 1000, function() {
-            $('.social-nav ul').removeClass('invisible');
+        $('.welcome-box h1').animate({opacity: 1}, 2500, function() {
+            $('.social-nav ul').removeClass('invisible').addClass('animated pulse');
         });
     }, 70);
 
