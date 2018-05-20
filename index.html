@@ -10,11 +10,9 @@
     <link rel="shortcut icon" href="/favicon.bmp" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,300italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="ext/css/ionicons.min.css" rel="stylesheet">
     <link href="res/css/styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="screen"> 
-
 
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
@@ -57,7 +55,7 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="#about-me" class="nav-link">About me</a></li>
                                 <li><a href="#works" class="nav-link">Works and interests</a></li>
-								<li><a href="files/BADR KACIMI Resume.pdf" target="_blank">Resume <i class="fa fa-download"></i></a></li>
+								<li class="menu-item"><a href="files/Resume.pdf" target="_blank">Resume <i class="fa fa-download"></i></a></li>
                                 <li><a href="#contact" class="nav-link">Contact</a></li>
                             </ul>
                         </div>
@@ -97,7 +95,7 @@
                     <div class="col-md-6 feats-container">
                         <section>
                             <h3><span class="ion-ios-glasses-outline icon-header"></span>Who I'm</h3>
-                            <p>Hey, my name is BADR KACIMI. I am a software Engineer from Morocco, love programming with Java and having some major romance with JavaScript</p>
+                            <p>Hey, my name is BADR KACIMI. I am a software Engineer from Morocco, I love programming with Java and having some major romance with JavaScript</p>
                         </section>
                     </div>
                     <div class="col-md-6 feat-bg bg-me hidden-xs hidden-sm invisible"></div>
@@ -112,7 +110,7 @@
                             <ul class="list-unstyled">
                                 <li><span class="color-main">Coding:</span> Apart from Java, Spring and JS at times I've worked with Node.JS, Machine learning, Meta-modeling.</li>
                                 <li><span class="color-main">Education:</span> I studied computer science in INSEA (National Institute of Statistics and Applied Economics) and having some basic knowledge in economy.Class of 2018</li>
-                                <li><span class="color-main">Hobbies:</span> Anime addicted, Gym and love working with Adobe PS and After effects</li>
+                                <li><span class="color-main">Hobbies:</span> Anime addicted,Gym and love working with Adobe PS and After effects</li>
                                 <li><span class="color-main">Languages:</span> My native lang is Arabic, I write and I read English and french!</li>
                             </ul>
                         </section>
@@ -123,7 +121,7 @@
         </div>
 
 
-       <!-- works -->
+        <!-- works -->
         <div class="portfolio-row row">
             <section class="container portfolio" id="works">
                 <div class="row">
@@ -135,7 +133,7 @@
                     <div class="showcase-container clearfix" id="showcase-container">
 
                         <section class="col-sm-4 showcase-item">
-                            <img class="img-responsive showcase-img" src="http://www.webhostingsearch.com/assets/BlogImages/_resampled/ResizedImage600414-MEDIUM2.png" alt="medium articles">
+                            <img class="img-responsive showcase-img" src="https://cdn-images-1.medium.com/max/1200/1*L0zf9ap8xoInVbm78siJBA.png" alt="medium articles">
                             <div class="item-desc">
                                 <h4>Embedded database</h4>
                                 <p>Introduce embedded databases and implement an embedded database to our Spring Boot application</p>
@@ -152,7 +150,7 @@
                             </div>
                         </section>
 						<section class="col-sm-4 showcase-item">
-                            <img class="img-responsive showcase-img" src="https://sd-cdn.fr/wp-content/uploads/2017/05/quora-770x515.png" alt="Jsonschema">
+                            <img class="img-responsive showcase-img" src="https://www.sociobits.org/wp-content/uploads/2015/02/Quora.jpg" alt="Jsonschema">
                             <div class="item-desc">
                                 <p>I'm on quora !</p>
                                 <a class="button primary-btn" href="https://www.quora.com/profile/Kacimi-Badr" target="_blank">Visit</a>
@@ -161,9 +159,7 @@
 						<section class="col-sm-4 showcase-item">
                             <img class="img-responsive showcase-img" src=https://wildcodeschool.fr/wp-content/uploads/2016/04/github.jpg" alt="Jsonschema">
                             <div class="item-desc">
-						                                  <h4>I'm on Github !</h4>
-
-                                <p>Check my projects </p>
+                                <p>I'm on Github !</p>
                                 <a class="button primary-btn" href="https://www.quora.com/profile/Kacimi-Badr" target="_blank">Visit</a>
                             </div>
                         </section>
@@ -189,9 +185,21 @@
                 <div class="row">
                     <h2>Get in touch !</h2>
                 </div>
-                <div class="row">                    
-                            <button class="button" href="mailto:badrvakacimi@gmail.com">Mail me here</button>
-                        </div>                 
+                <div class="row">
+                    <form id="contact-form" method="post" action="http://formspree.io/badrvkacimi@gmail.com">
+                        <div class="row">
+                            <input name="form-name" id="form-name" type="text" placeholder="your name" required>
+                        </div>
+                        <div class="row">
+                            <input name="form-email" id="form-email" type="email" placeholder="your email" required>
+                        </div>
+                        <div class="row">
+                            <textarea name="form-msg" id="form-msg" placeholder="your message" required></textarea>
+                        </div>
+                        <div class="row">
+                            <button type="submit" class="button">Submit</button>
+                        </div>
+                    </form>
                 </div>
             </section>
         </div>
@@ -206,9 +214,10 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
+    <script src="ext/js/jquery.filterizr.min.js"></script>
     <script src="ext/js/particles.min.js"></script>
     <script src="res/js/typewriter.js"></script>
     <script src="res/js/app.js"></script>
