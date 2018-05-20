@@ -13,47 +13,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href="ext/css/ionicons.min.css" rel="stylesheet">
     <link href="res/css/styles.css" rel="stylesheet">
-	<style>
-	.buttonbadr {
-  display: inline-block;
-  border-radius: 4px;
-  background-color: #f4511e;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 20px;
-  padding: 12px;
-  width: 200px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
-
-.buttonbadr span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.buttonbadr span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.buttonbadr:hover span {
-  padding-right: 25px;
-}
-
-.buttonbadr:hover span:after {
-  opacity: 1;
-  right: 0;
-}</style>
-
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
     <![endif]-->
@@ -72,7 +31,7 @@
 				<section class="container contact">
 				 <div class="row">
 				<h4>BADR : I apologize for the error and it will not happen again...</h4>
-				                     <button class="buttonbadr" style="vertical-align:middle"><span>Go back</span></button>
+				      <button class="button" style="vertical-align:middle"><span><a  href="https://badrkac.github.io">Go back</a></span></button>
 
                      </div>
 					 </section>
@@ -91,4 +50,45 @@
     <script src="res/js/app.js"></script>
 
 </body>
+<style>
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #d6d8d6;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
 </html>
