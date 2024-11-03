@@ -4092,6 +4092,9 @@ div:hover>h3>.icon-header {
     height: 25rem;
     margin-bottom: -10rem
     background-size: contain;
+    background-size: cover; /* Ensures the image covers the area without stretching */
+    background-position: center; /* Centers the image in the div */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
 }
 
 .about-me .bg-facts {
