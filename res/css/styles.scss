@@ -616,12 +616,15 @@ div:hover > h3 > .icon-header {
         }
     }
 
-    .bg-whatido {
-        @extend %featBG;
-        background-image: url(../img/what_i_do.jpg);
-        height: 25rem;
-        margin-bottom: -10rem;
-    }
+.bg-whatido {
+    @extend %featBG;
+    background-image: url(../img/what_i_do.jpg);
+    background-size: cover;  // Ensures the image covers the area, but may crop slightly
+    background-position: center;  // Centers the image within the div
+    background-repeat: no-repeat;  // Prevents the image from repeating
+    height: 25rem;
+    margin-bottom: -10rem;
+}
 
     .bg-facts {
         @extend %featBG;
