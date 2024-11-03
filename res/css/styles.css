@@ -4091,6 +4091,7 @@ div:hover>h3>.icon-header {
     background-image: url(../img/what_i_do.jpg);
     height: 25rem;
     margin-bottom: -10rem
+    background-size: contain;
 }
 
 .about-me .bg-facts {
