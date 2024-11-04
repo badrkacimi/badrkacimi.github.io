@@ -3,67 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Badr Kacimi | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Badr Kacimi - Personal Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" rel="stylesheet">
+    <style>
+        body {
+          font-family: 'Poppins', sans-serif;
+          background-color: #f4f4f4;
+          color: #222;
+          overflow-x: hidden;
+          scroll-behavior: smooth;
+        }
+        .navbar {
+          background-color: #222;
+          padding: 1rem 2rem;
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand, .nav-link {
+          color: #fff !important;
+          font-weight: 600;
+          letter-spacing: 0.05rem;
+        }
+        .navbar-brand {
+          font-size: 1.75rem;
+        }
+        .navbar-nav .nav-link:hover {
+          color: #ff7f50 !important;
+        }
+        header {
+          background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/1600x900/?technology,coding') no-repeat center center;
+          background-size: cover;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          color: #fff;
+        }
+        header h1 {
+          font-size: 4rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+          text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+        }
+        header p {
+          font-size: 1.5rem;
+          max-width: 600px;
+          margin: auto;
+        }
+        .btn-custom {
+          background-color: #ff7f50;
+          color: #fff;
+          padding: 0.75rem 2rem;
+          border: none;
+          transition: background-color 0.3s, transform 0.3s;
+          box-shadow: 0 4px 10px rgba(255, 127, 80, 0.3);
+        }
+        .btn-custom:hover {
+          background-color: #ff5722;
+          transform: translateY(-3px);
+        }
+        .section {
+          padding: 80px 0;
+        }
+        .card {
+          transition: transform 0.3s, box-shadow 0.3s;
+          border: none;
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+        .timeline {
+          margin-top: 60px;
+          position: relative;
+        }
+        .timeline::before {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 0;
+          bottom: 0;
+          width: 4px;
+          background: #ff7f50;
+          transform: translateX(-50%);
+        }
+        .timeline-item {
+          padding: 20px;
+          position: relative;
+          width: 50%;
+        }
+        .timeline-item:nth-child(odd) {
+          left: 0;
+          animation: fadeInLeft 1s ease-in-out;
+        }
+        .timeline-item:nth-child(even) {
+          left: 50%;
+          animation: fadeInRight 1s ease-in-out;
+        }
+        .timeline-item h5 {
+          color: #ff7f50;
+          font-weight: 600;
+        }
+        .hobbies-section {
+          background-color: #fff;
+        }
+        .hobbies-icon {
+          font-size: 4rem;
+          color: #ff7f50;
+        }
+        footer {
+          background-color: #222;
+          color: #fff;
+          padding: 20px;
+          text-align: center;
+        }
+        .social-icons a {
+          color: #ff7f50;
+          margin: 0 10px;
+          font-size: 1.5rem;
+        }
+        .social-icons a:hover {
+          color: #ff5722;
+        }
+    </style>
 </head>
 <body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Badr Kacimi</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#journey">My Journey</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#hobbies">Hobbies</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Header -->
 <header>
-    <h1>Badr Kacimi</h1>
-    <p>Senior Software Engineer | Generative AI | Cloud & Backend Specialist</p>
-    <div class="social-links">
-        <a href="https://github.com/badrkacimi" target="_blank">GitHub</a>
-        <a href="https://linkedin.com/in/badr-kacimi" target="_blank">LinkedIn</a>
-        <a href="https://quora.com/profile/Badr-Kacimi" target="_blank">Quora</a>
-        <a href="https://medium.com/@badrkacimi" target="_blank">Medium</a>
-        <a href="https://behance.net/badrkacimi" target="_blank">Behance</a>
+    <div class="container">
+        <h1 data-aos="fade-up">Hi, I'm Badr Kacimi</h1>
+        <p data-aos="fade-up" data-aos-delay="200">Senior Software Engineer with a passion for backend development, cloud infrastructure, and tech trends. "Code with purpose, craft with passion."</p>
+        <a href="#contact" class="btn btn-custom mt-4 hvr-bounce-to-right" data-aos="fade-up" data-aos-delay="400">Get In Touch</a>
     </div>
 </header>
 
-<main>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>An adaptable Senior Software Engineer with expertise in backend development, cloud infrastructure, and Generative AI. I thrive in cross-functional environments and enjoy mentoring teams on technical and strategic challenges.</p>
-    </section>
-
-    <section id="skills">
-        <h2>Technical Skills</h2>
-        <ul>
-            <li><strong>Backend:</strong> Java, Spring Boot, REST APIs, Apache Kafka</li>
-            <li><strong>Cloud/DevOps:</strong> Kubernetes, Docker, AWS, Azure, Terraform</li>
-            <li><strong>Frontend:</strong> ReactJS, Redux-Saga</li>
-            <li><strong>GenAI:</strong> OpenAI, RAG, Spring AI</li>
-        </ul>
-    </section>
-
-    <section id="experience">
-        <h2>Professional Experience</h2>
-        <div class="job">
-            <h3>Senior Consultant, Blue Harvest</h3>
-            <p>November 2023 – Present</p>
-            <p>Working with GenAI squad, implementing RAG and fine-tuning POCs for client adoption of AI solutions.</p>
+<!-- About Section -->
+<section id="about" class="section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 data-aos="fade-right">About Me</h2>
+                <p data-aos="fade-right" data-aos-delay="200">I'm an adaptable Senior Software Engineer based in Brussels, Belgium, with extensive experience in backend development, cloud infrastructure, and emerging tech, particularly in Generative AI. I enjoy solving complex problems, working in Agile environments, and writing tech articles on platforms like Medium and Quora.</p>
+                <p data-aos="fade-right" data-aos-delay="300">In my free time, you can find me playing football, listening to music, or engaging in e-sport competitions, especially Call of Duty Mobile.</p>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://source.unsplash.com/600x400/?developer,programming" alt="Coding" class="img-fluid rounded" data-aos="fade-left">
+            </div>
         </div>
-        <div class="job">
-            <h3>Software Engineer, TUI</h3>
-            <p>November 2022 – November 2023</p>
-            <p>Migrated services to AWS and analyzed Kafka migration for scalability.</p>
-        </div>
-        <div class="job">
-            <h3>Lead Software Engineer, Payment Center For Africa</h3>
-            <p>October 2021 – October 2022</p>
-            <p>Developed BFF architecture and coordinated with cybersecurity teams.</p>
-        </div>
-    </section>
+    </div>
+</section>
 
-    <section id="hobbies">
-        <h2>Activities and Hobbies</h2>
-        <p>In my spare time, I enjoy writing tech articles on Medium and Quora, playing football, listening to music, and engaging in e-sport, especially Call of Duty Mobile.</p>
-    </section>
-</main>
+<!-- Journey Section -->
+<section id="journey" class="section bg-light">
+    <div class="container">
+        <h2 data-aos="fade-up">My Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-right">
+                <h5>2023 - Present: Blue Harvest - Senior Consultant</h5>
+                <p>Leading GenAI initiatives, backend microservices development, and AI chatbot optimization. Collaborated with Tata Steel Netherlands and Belfius Bank.</p>
+            </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <h5>2022 - 2023: TUI - Software Engineer</h5>
+                <p>Worked on AWS migration projects, managed microservices, and developed event-driven architecture solutions.</p>
+            </div>
+            <div class="timeline-item" data-aos="fade-right">
+                <h5>2021 - 2022: Payment Center For Africa - Lead Software Engineer</h5>
+                <p>Led BFF architecture implementation and frontend development for TradeNet portal. Worked with cybersecurity teams to address vulnerabilities.</p>
+            </div>
+            <div class="timeline-item" data-aos="fade-left">
+                <h5>2018 - 2021: EURAFRIC INFORMATION - Software Engineer</h5>
+                <p>Developed core banking solutions including batch processes and web services for multiple clients.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- Projects Section -->
+<section id="projects" class="section">
+    <div class="container">
+        <h2 data-aos="fade-up">Projects</h2>
+        <div class="row">
+            <div class="col-md-4" data-aos="zoom-in">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">GitHub Projects</h5>
+                        <p class="card-text">Check out my code repositories and contributions on <a href="https://github.com/badrkacimi" target="_blank">GitHub</a>.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Quora and Medium</h5>
+                        <p class="card-text">Read my tech articles on <a href="https://quora.com/profile/Badr-Kacimi" target="_blank">Quora</a> and <a href="https://medium.com/@badrkacimi" target="_blank">Medium</a>.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Behance</h5>
+                        <p class="card-text">Explore my design work on <a href="https://www.behance.net/badrkacimi" target="_blank">Behance</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Hobbies Section -->
+<section id="hobbies" class="hobbies-section section">
+    <div class="container">
+        <h2 class="text-center" data-aos="fade-up">Hobbies</h2>
+        <div class="row">
+            <div class="col-md-4 hobbies-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="hobbies-icon">
+                    <i class="fas fa-futbol"></i>
+                </div>
+                <h5>Football</h5>
+                <p>Playing football helps me stay active and improve my teamwork skills.</p>
+            </div>
+            <div class="col-md-4 hobbies-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="hobbies-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h5>Music</h5>
+                <p>I enjoy listening to a wide variety of music genres to relax and get inspired.</p>
+            </div>
+            <div class="col-md-4 hobbies-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="hobbies-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h5>E-sport (Call of Duty Mobile)</h5>
+                <p>I love competing in e-sport games, especially Call of Duty Mobile.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section bg-light">
+    <div class="container">
+        <h2 data-aos="fade-up">Contact Me</h2>
+        <p data-aos="fade-up" data-aos-delay="200">If you're a recruiter or simply want to connect, feel free to reach out via <a href="mailto:badrvkacimi@gmail.com">email</a> or on <a href="https://linkedin.com/in/badr-kacimi" target="_blank">LinkedIn</a>.</p>
+    </div>
+</section>
+
+<!-- Footer -->
 <footer>
-    <p>Connect with me on <a href="https://linkedin.com/in/badr-kacimi" target="_blank">LinkedIn</a> or check out my projects on <a href="https://github.com/badrkacimi" target="_blank">GitHub</a>.</p>
+    <p>&copy; 2024 Badr Kacimi. All rights reserved.</p>
+    <div class="social-icons">
+        <a href="https://github.com/badrkacimi" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/badr-kacimi" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:badrvkacimi@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script>
+    AOS.init();
+</script>
 </body>
 </html>
