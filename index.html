@@ -4,97 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Badr Kacimi - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-    <div class="hero">
-        <h1>Badr Kacimi</h1>
-        <p>Senior Software Engineer</p>
-        <a href="#contact" class="cta-btn">Let's Connect</a>
-        <a href="kacimi-badr-cv.pdf" target="_blank" class="download-btn">Download CV</a>
-    </div>
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <h1>Badr Kacimi</h1>
+    <p>Senior Software Engineer</p>
+    <p>Brussels, Belgium - <a href="mailto:badrvkacimi@gmail.com">badrvkacimi@gmail.com</a></p>
 </header>
+<nav>
+    <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+<section id="about">
+    <h2>Professional Summary</h2>
+    <p>
+        Adaptable Senior Software Engineer with extensive experience in backend development, cloud infrastructure,
+        and emerging tech (e.g., Generative AI). Skilled in delivering cross-functional solutions in Agile settings
+        and mentoring teams through technical and strategic challenges.
+    </p>
+</section>
+<section id="skills">
+    <h2>Technical Skills</h2>
+    <ul>
+        <li><strong>Backend:</strong> Java, Spring Boot, REST APIs, Apache Kafka, Oracle DB, MongoDB</li>
+        <li><strong>Cloud/DevOps:</strong> Kubernetes, Docker, AWS, Azure, Terraform, GitLab CI, Jenkins</li>
+        <li><strong>Frontend:</strong> ReactJS, Redux-Saga</li>
+        <li><strong>GenAI:</strong> OpenAI, Spring AI, RAG</li>
+        <li><strong>Project Management:</strong> Jira, Trello, Agile/Scrum, Waterfall</li>
+    </ul>
+</section>
+<section id="experience">
+    <h2>Professional Experience</h2>
+    <h3>Senior Consultant, Blue Harvest</h3>
+    <p>November 2023 – Present</p>
+    <ul>
+        <li>GenAI squad, implementing RAG and fine-tuning POCs to support client adoption of AI.</li>
+        <li>Conducted technical assessments and collaborated on cross-functional initiatives for RFPs.</li>
+    </ul>
 
-<main>
-    <section id="about" class="fade-in">
-        <h2>About Me</h2>
-        <p>Adaptable Senior Software Engineer with experience in backend development, cloud infrastructure, and emerging tech like Generative AI. Skilled in delivering cross-functional solutions in Agile settings and mentoring teams through technical and strategic challenges.</p>
-    </section>
+    <h3>Software Engineer, TUI</h3>
+    <p>November 2022 – November 2023</p>
+    <ul>
+        <li>Migrated Java and Spring Boot services and analyzed Kafka migration for scalability on AWS MSK.</li>
+        <li>Managed microservices development and deployment on AWS with event-driven architecture.</li>
+    </ul>
 
-    <section id="skills" class="fade-in">
-        <h2>Technical Skills</h2>
-        <div class="skill-bar">
-            <p>Java & Spring Boot</p>
-            <div class="progress-bar" style="width: 90%;"></div>
-        </div>
-        <div class="skill-bar">
-            <p>REST APIs & Kafka</p>
-            <div class="progress-bar" style="width: 85%;"></div>
-        </div>
-        <div class="skill-bar">
-            <p>Cloud & DevOps</p>
-            <div class="progress-bar" style="width: 80%;"></div>
-        </div>
-        <div class="skill-bar">
-            <p>Frontend & ReactJS</p>
-            <div class="progress-bar" style="width: 70%;"></div>
-        </div>
-        <div class="skill-bar">
-            <p>GenAI & RAG</p>
-            <div class="progress-bar" style="width: 75%;"></div>
-        </div>
-    </section>
-
-    <section id="experience" class="fade-in">
-        <h2>Professional Experience</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <h3>Senior Consultant at Blue Harvest</h3>
-                <span>Nov 2023 - Present</span>
-                <p>GenAI squad, implementing RAG and fine-tuning POCs for client AI adoption.</p>
-            </div>
-            <div class="timeline-item">
-                <h3>Software Engineer at TUI</h3>
-                <span>Nov 2022 - Nov 2023</span>
-                <p>Migrated Java and Spring Boot services and analyzed Kafka for AWS MSK scalability.</p>
-            </div>
-            <!-- Add more timeline items as needed -->
-        </div>
-    </section>
-
-    <section id="contact" class="fade-in">
-        <h2>Contact & Profiles</h2>
-        <form action="https://formspree.io/f/my-form-id" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        <ul class="social-links">
-            <li><a href="https://github.com/badrkacimi" target="_blank">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/badr-kacimi" target="_blank">LinkedIn</a></li>
-            <li><a href="https://quora.com/profile/Badr-Kacimi" target="_blank">Quora</a></li>
-            <li><a href="https://stackoverflow.com/users/your-id" target="_blank">Stack Overflow</a></li>
-            <li><a href="https://medium.com/@badrkacimi" target="_blank">Medium</a></li>
-            <li><a href="https://www.behance.net/badrkacimi" target="_blank">Behance</a></li>
-        </ul>
-    </section>
-</main>
-
+    <h3>Lead Software Engineer, Payment Center For Africa</h3>
+    <p>October 2021 – October 2022</p>
+    <ul>
+        <li>Oversaw BFF architecture in Java/Spring Boot and frontend with ReactJS for TradeNet portal.</li>
+        <li>Coordinated with cybersecurity teams to address vulnerabilities.</li>
+    </ul>
+</section>
+<section id="contact">
+    <h2>Find Me Online</h2>
+    <ul>
+        <li><a href="https://quora.com" target="_blank">Quora</a></li>
+        <li><a href="https://stackoverflow.com" target="_blank">Stack Overflow</a></li>
+        <li><a href="https://medium.com" target="_blank">Medium</a></li>
+        <li><a href="https://behance.com" target="_blank">Behance</a></li>
+    </ul>
+    <h2>Hobbies</h2>
+    <p>Writing tech articles, Football, Music, E-sport (Call of Duty Mobile)</p>
+</section>
 <footer>
-    <p>Activities & Hobbies: Writing tech articles, Football, Music, E-sports (Call of Duty Mobile)</p>
-    <p>&copy; 2024 Badr Kacimi</p>
+    <p>© 2024 Badr Kacimi</p>
 </footer>
-
-<script src="script.js"></script>
 </body>
 </html>
