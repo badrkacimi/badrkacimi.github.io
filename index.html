@@ -1,173 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Portfolio of Badr Kacimi, R&D SWE Engineer">
-    <title>Badr Kacimi</title>
-
-    <link rel="shortcut icon" href="/favicon.bmp" type="image/x-icon">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,300,300italic" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="ext/css/ionicons.min.css" rel="stylesheet">
-    <link href="res/css/styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <style>
-        /* Simplified styling */
-        body, html {
-            font-family: 'Lato', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        .main-header {
-            background-color: #3498db;
-            color: white;
-            text-align: center;
-            padding: 80px 0;
-        }
-
-        .navbar-brand {
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-
-        .welcome-box h1 {
-            font-size: 2.5em;
-            font-weight: bold;
-            margin: 20px 0 10px;
-        }
-
-        .section-title {
-            font-size: 2em;
-            margin: 20px 0;
-            text-align: center;
-            color: #3498db;
-        }
-
-        .about-me, .portfolio-row, .contact-row {
-            padding: 40px 20px;
-        }
-
-        .portfolio .showcase-item {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .portfolio .showcase-img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-
-        .contact-row {
-            background-color: #333;
-            color: white;
-            text-align: center;
-        }
-
-        .footer-main {
-            background-color: #282c34;
-            color: white;
-            text-align: center;
-            padding: 15px 0;
-        }
-
-        .fa-stack {
-            margin: 0 10px;
-            color: white;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badr Kacimi - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
-<body data-spy="scroll" data-target="#main-nav">
-    <header class="main-header" id="main-header">
-        <nav class="navbar">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="ion-navicon nav-open"></span>
-                    </button>
-                    <a class="navbar-brand" href="#main-header">
-                        <img src="res/img/favicon.png" alt="Badr logo" class="logo-img" />
-                        Badr Kacimi
-                    </a>
-                </div>
-                <div class="collapse navbar-collapse" id="main-nav">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#about-me" class="nav-link">About me</a></li>
-                        <li><a href="#works" class="nav-link">Find me on</a></li>
-                        <li><a href="freelance.html" class="nav-link">Freelance</a></li>
-                        <li><a href="#contact" class="nav-link">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
+<body>
+    <header>
+        <h1>Badr Kacimi</h1>
+        <p>Senior Software Engineer</p>
+        <p>Brussels, Belgium</p>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
-
-        <div class="welcome-box">
-            <h1>Badr Kacimi</h1>
-            <p>Hey! Well, look who showed up. About time!</p>
-        </div>
     </header>
-
-    <!-- About Me Section -->
-    <section class="container about-me" id="about-me">
-        <h2 class="section-title">About me</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <h3>Who I'm</h3>
-                <p>Senior Software Engineer & adaptable technologist, driven by strong team connections.</p>
-                <p>Experience in consulting, software engineering, and financial services. INSEA graduate in economics and computer science.</p>
-            </div>
-            <div class="col-md-6">
-                <h3>Background</h3>
-                <ul>
-                    <li><strong>Tech:</strong> Java, React, Gen AI, DevOps, Architecture</li>
-                    <li><strong>Education:</strong> Master of Engineering - Data and Software, Class of 2018</li>
-                    <li><strong>Languages:</strong> Arabic, French, English, and basic Dutch</li>
-                </ul>
-            </div>
-        </div>
+    
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Adaptable Senior Software Engineer with experience in backend development, cloud infrastructure, and emerging tech like Generative AI. Skilled in delivering cross-functional solutions in Agile settings and mentoring teams through technical and strategic challenges.</p>
     </section>
-
-    <!-- Portfolio Section -->
-    <section class="portfolio-row" id="works">
-        <h2 class="section-title">You can find me here 👇🏼</h2>
-        <div class="row">
-            <div class="showcase-container clearfix" id="showcase-container">
-                <div class="col-sm-4 showcase-item">
-                    <img class="img-responsive showcase-img" src="https://miro.medium.com/max/1400/1*ETBuxcyQRE59mYNz3nwxDQ.png" alt="Medium articles">
-                    <div class="item-desc">
-                        <h4>A living network of curious minds.</h4>
-                        <a class="btn btn-primary" href="https://medium.com/@badrvkacimi" target="_blank">Read my story</a>
-                    </div>
-                </div>
-                <!-- Add other items similarly -->
-            </div>
-        </div>
+    
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <ul>
+            <li><strong>Backend:</strong> Java, Spring Boot, REST APIs, Apache Kafka, Oracle DB, MongoDB</li>
+            <li><strong>Cloud/DevOps:</strong> Kubernetes, Docker, AWS, Azure, Terraform, GitLab CI, Jenkins</li>
+            <li><strong>Frontend:</strong> ReactJS, Redux-Saga</li>
+            <li><strong>GenAI:</strong> OpenAI, Spring AI, RAG</li>
+            <li><strong>Project Management:</strong> Jira, Trello, Agile/Scrum, Waterfall</li>
+        </ul>
     </section>
-
-    <!-- Contact Section -->
-    <section class="contact-row" id="contact">
-        <h2 class="section-title">Get in touch!</h2>
-        <div>
-            <span class="fa-stack fa-2x"><a href="https://twitter.com/BadrKacimi"><i class="fa fa-twitter"></i></a></span>
-            <span class="fa-stack fa-2x"><a href="https://www.behance.net/badrkacimi"><i class="fa fa-behance"></i></a></span>
-            <span class="fa-stack fa-2x"><a href="mailto:badrvakacimi@gmail.com"><i class="fa fa-envelope-o"></i></a></span>
+    
+    <section id="experience">
+        <h2>Professional Experience</h2>
+        <div class="job">
+            <h3>Senior Consultant at Blue Harvest</h3>
+            <p>Nov 2023 - Present</p>
+            <ul>
+                <li>GenAI squad, implementing RAG and fine-tuning POCs for client AI adoption.</li>
+                <li>Conducted technical assessments and collaborated on cross-functional initiatives.</li>
+            </ul>
         </div>
+        <div class="job">
+            <h3>Software Engineer at TUI</h3>
+            <p>Nov 2022 - Nov 2023</p>
+            <ul>
+                <li>Migrated Java and Spring Boot services and analyzed Kafka for AWS MSK scalability.</li>
+            </ul>
+        </div>
+        <!-- Add more experience as needed -->
     </section>
-
-    <!-- Footer -->
-    <footer class="footer-main">
-        <h5>&copy; Badr Kacimi &mdash; Since 2016</h5>
+    
+    <section id="contact">
+        <h2>Contact & Profiles</h2>
+        <ul>
+            <li><a href="https://github.com/badrkacimi" target="_blank">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/badr-kacimi" target="_blank">LinkedIn</a></li>
+            <li><a href="https://quora.com/profile/Badr-Kacimi" target="_blank">Quora</a></li>
+            <li><a href="https://stackoverflow.com/users/your-id" target="_blank">Stack Overflow</a></li>
+            <li><a href="https://medium.com/@badrkacimi" target="_blank">Medium</a></li>
+            <li><a href="https://www.behance.net/badrkacimi" target="_blank">Behance</a></li>
+        </ul>
+    </section>
+    
+    <footer>
+        <p>Activities & Hobbies: Writing tech articles, Football, Music, E-sports (Call of Duty Mobile)</p>
+        <p>&copy; 2024 Badr Kacimi</p>
     </footer>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
-
 </html>
