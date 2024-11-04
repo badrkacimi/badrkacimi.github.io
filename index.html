@@ -16,71 +16,46 @@
     <link href="res/css/styles.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-    <![endif]-->
-
     <style>
-        /* Custom Styling */
+        /* Simplified styling */
         body, html {
             font-family: 'Lato', sans-serif;
             background-color: #f4f4f4;
-            scroll-behavior: smooth;
-        }
-
-        .loader-screen {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: #282c34;
-            color: white;
-        }
-
-        .main-header {
-            position: relative;
-            background: linear-gradient(120deg, #3498db, #8e44ad);
-            color: white;
-            text-align: center;
-            padding: 100px 0;
-        }
-
-        .navbar-brand {
-            font-size: 1.8em;
-            font-weight: bold;
-        }
-
-        .nav > li > a {
-            color: white !important;
-        }
-
-        .welcome-box {
-            font-size: 1.2em;
-            line-height: 1.5;
-            margin-top: 20px;
-        }
-
-        /* Sections Styling */
-        .section-title {
-            font-size: 2.2em;
-            margin: 20px 0;
-            text-align: center;
             color: #333;
         }
 
-        .about-me {
-            background-color: #fff;
-            padding: 40px 20px;
+        .main-header {
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            padding: 80px 0;
         }
 
-        .portfolio-row {
-            padding: 60px 0;
-            background-color: #f9f9f9;
+        .navbar-brand {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .welcome-box h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 20px 0 10px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            margin: 20px 0;
+            text-align: center;
+            color: #3498db;
+        }
+
+        .about-me, .portfolio-row, .contact-row {
+            padding: 40px 20px;
         }
 
         .portfolio .showcase-item {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .portfolio .showcase-img {
@@ -91,7 +66,6 @@
         .contact-row {
             background-color: #333;
             color: white;
-            padding: 40px 20px;
             text-align: center;
         }
 
@@ -99,43 +73,17 @@
             background-color: #282c34;
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 15px 0;
         }
 
         .fa-stack {
-            margin: 0 15px;
+            margin: 0 10px;
             color: white;
-        }
-
-        /* Hover effects */
-        .showcase-item:hover .item-desc h4 {
-            color: #3498db;
-        }
-
-        .nav-link:hover {
-            color: #3498db !important;
-        }
-
-        .primary-btn:hover, .preview-btn:hover {
-            color: white !important;
-            background-color: #3498db !important;
         }
     </style>
 </head>
 
 <body data-spy="scroll" data-target="#main-nav">
-    <div class="loader-screen">
-        <ul class="loading-bar">
-            <li class="loading-line"></li>
-            <li class="loading-line"></li>
-            <li class="loading-line"></li>
-            <li class="loading-line"></li>
-            <li class="loading-line"></li>
-        </ul>    
-        <h4>Sber M3ana mn fadlal (wait pls) !</h4>
-    </div>
-
-    <!-- Header Section -->
     <header class="main-header" id="main-header">
         <nav class="navbar">
             <div class="container">
@@ -162,25 +110,24 @@
 
         <div class="welcome-box">
             <h1>Badr Kacimi</h1>
-            <p>Hey ! Well, look who showed up. About time!</p>
+            <p>Hey! Well, look who showed up. About time!</p>
         </div>
     </header>
 
     <!-- About Me Section -->
     <section class="container about-me" id="about-me">
         <h2 class="section-title">About me</h2>
-        <div class="row feats-row">
+        <div class="row">
             <div class="col-md-6">
                 <h3>Who I'm</h3>
                 <p>Senior Software Engineer & adaptable technologist, driven by strong team connections.</p>
-                <p>Experience in consulting, software engineering, financial services. INSEA graduate in economics and computer science.</p>
+                <p>Experience in consulting, software engineering, and financial services. INSEA graduate in economics and computer science.</p>
             </div>
             <div class="col-md-6">
                 <h3>Background</h3>
                 <ul>
                     <li><strong>Tech:</strong> Java, React, Gen AI, DevOps, Architecture</li>
-                    <li><strong>Education:</strong> Master of Engineering - Data and Software | Statistics and Economics</li>
-                    <li><strong>Hobbies:</strong> Writing tech stories, Gaming, Gym, Music</li>
+                    <li><strong>Education:</strong> Master of Engineering - Data and Software, Class of 2018</li>
                     <li><strong>Languages:</strong> Arabic, French, English, and basic Dutch</li>
                 </ul>
             </div>
@@ -192,15 +139,14 @@
         <h2 class="section-title">You can find me here 👇🏼</h2>
         <div class="row">
             <div class="showcase-container clearfix" id="showcase-container">
-                <!-- Portfolio Items -->
                 <div class="col-sm-4 showcase-item">
-                    <img class="img-responsive showcase-img" src="https://miro.medium.com/max/1400/1*ETBuxcyQRE59mYNz3nwxDQ.png" alt="medium articles">
+                    <img class="img-responsive showcase-img" src="https://miro.medium.com/max/1400/1*ETBuxcyQRE59mYNz3nwxDQ.png" alt="Medium articles">
                     <div class="item-desc">
                         <h4>A living network of curious minds.</h4>
-                        <a class="button preview-btn" href="https://medium.com/@badrvkacimi" target="_blank">Read my story</a>
+                        <a class="btn btn-primary" href="https://medium.com/@badrvkacimi" target="_blank">Read my story</a>
                     </div>
                 </div>
-                <!-- Add additional portfolio items similarly -->
+                <!-- Add other items similarly -->
             </div>
         </div>
     </section>
@@ -209,9 +155,9 @@
     <section class="contact-row" id="contact">
         <h2 class="section-title">Get in touch!</h2>
         <div>
-            <span class="fa-stack fa-3x"><a href="https://twitter.com/BadrKacimi"><i class="fa fa-twitter"></i></a></span>
-            <span class="fa-stack fa-3x"><a href="https://www.behance.net/badrkacimi"><i class="fa fa-behance"></i></a></span>
-            <span class="fa-stack fa-3x"><a href="mailto:badrvakacimi@gmail.com"><i class="fa fa-envelope-o"></i></a></span>
+            <span class="fa-stack fa-2x"><a href="https://twitter.com/BadrKacimi"><i class="fa fa-twitter"></i></a></span>
+            <span class="fa-stack fa-2x"><a href="https://www.behance.net/badrkacimi"><i class="fa fa-behance"></i></a></span>
+            <span class="fa-stack fa-2x"><a href="mailto:badrvakacimi@gmail.com"><i class="fa fa-envelope-o"></i></a></span>
         </div>
     </section>
 
