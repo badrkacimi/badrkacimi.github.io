@@ -4077,7 +4077,11 @@ div:hover>h3>.icon-header {
 .about-me .bg-me {
     background-image: url(../img/meandbro.jpg);
     height: 25rem;
-    margin-bottom: 2rem
+    margin-bottom: -10rem
+    background-size: contain;
+    background-size: cover; /* Ensures the image covers the area without stretching */
+    background-position: center; /* Centers the image in the div */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
 }
 
 @media (min-width: 992px) {
