@@ -361,13 +361,11 @@ img {
   color: var(--title-color);
   font-size: var(--h2-font-size);
   font-weight: var(--font-semi-bold);
-  margin-left: 4rem; /* Space on the left */
-  margin-right: 4rem; /* Space on the right */
+  margin-left: 3rem; /* Space on the left */
+  margin-right: 3rem; /* Space on the right */
 }
 .about-container-data-info-name {
   font-size: var(--smaller-font-size);
-  margin-left: 1rem; /* Space on the left */
-  margin-right: 1rem; /* Space on the right */
 }
 .about-container-data-info-title, .about-container-data-info-name {
   display: block;
