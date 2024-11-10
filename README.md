@@ -1,15 +1,10 @@
-# Badr Kacimi's Portfolio
+# My Personal Portfolio
 
-Welcome to my portfolio repository! This project is a static site showcasing my professional skills, projects, and experience, designed to provide a clear overview of my work.
+Welcome to my personal portfolio website! This site is all about showcasing who I am, what I do, and what I’m passionate
+about.
 
-## About
+## 📫 Get in Touch
 
-This portfolio is a personal site intended to highlight my journey in the tech industry, including my projects, articles, and other professional accomplishments. Built with a combination of SCSS, HTML, and JavaScript, the site is designed to be both visually appealing and fully responsive.
+Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/badr-kacimi/) I’d love to hear from you!
 
-## Getting Started
-
-To view the site locally:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/badrkacimi/badrkacimi.github.io.git
+Enjoy browsing!

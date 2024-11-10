@@ -1,298 +1,453 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Badr Kacimi - Personal Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" rel="stylesheet">
-    <style>
-        body {
-          font-family: 'Poppins', sans-serif;
-          background-color: #f4f4f4;
-          color: #222;
-          overflow-x: hidden;
-          scroll-behavior: smooth;
-        }
-        .navbar {
-          background-color: #222;
-          padding: 1rem 2rem;
-          position: sticky;
-          top: 0;
-          z-index: 1000;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .navbar-brand, .nav-link {
-          color: #fff !important;
-          font-weight: 600;
-          letter-spacing: 0.05rem;
-        }
-        .navbar-brand {
-          font-size: 1.75rem;
-        }
-        .navbar-nav .nav-link:hover {
-          color: #ff7f50 !important;
-        }
-        header {
-          background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/1600x900/?technology,coding') no-repeat center center;
-          background-size: cover;
-          height: 100vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          color: #fff;
-        }
-        header h1 {
-          font-size: 4rem;
-          font-weight: 700;
-          margin-bottom: 1rem;
-          text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
-        }
-        header p {
-          font-size: 1.5rem;
-          max-width: 600px;
-          margin: auto;
-        }
-        .btn-custom {
-          background-color: #ff7f50;
-          color: #fff;
-          padding: 0.75rem 2rem;
-          border: none;
-          transition: background-color 0.3s, transform 0.3s;
-          box-shadow: 0 4px 10px rgba(255, 127, 80, 0.3);
-        }
-        .btn-custom:hover {
-          background-color: #ff5722;
-          transform: translateY(-3px);
-        }
-        .section {
-          padding: 80px 0;
-        }
-        .card {
-          transition: transform 0.3s, box-shadow 0.3s;
-          border: none;
-          border-radius: 10px;
-          overflow: hidden;
-          box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-        }
-        .card:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-        }
-        .timeline {
-          margin-top: 60px;
-          position: relative;
-        }
-        .timeline::before {
-          content: "";
-          position: absolute;
-          left: 50%;
-          top: 0;
-          bottom: 0;
-          width: 4px;
-          background: #ff7f50;
-          transform: translateX(-50%);
-        }
-        .timeline-item {
-          padding: 20px;
-          position: relative;
-          width: 50%;
-        }
-        .timeline-item:nth-child(odd) {
-          left: 0;
-          animation: fadeInLeft 1s ease-in-out;
-        }
-        .timeline-item:nth-child(even) {
-          left: 50%;
-          animation: fadeInRight 1s ease-in-out;
-        }
-        .timeline-item h5 {
-          color: #ff7f50;
-          font-weight: 600;
-        }
-        .hobbies-section {
-          background-color: #fff;
-        }
-        .hobbies-icon {
-          font-size: 4rem;
-          color: #ff7f50;
-        }
-        footer {
-          background-color: #222;
-          color: #fff;
-          padding: 20px;
-          text-align: center;
-        }
-        .social-icons a {
-          color: #ff7f50;
-          margin: 0 10px;
-          font-size: 1.5rem;
-        }
-        .social-icons a:hover {
-          color: #ff5722;
-        }
-    </style>
+    <meta content="Professional portfolio for Badr Kacimi" name="description">
+    <meta content="Software Engineer, Architecture Finance services, Engineer, Curriculum, CV, Badr Kacimi, Portfolio"
+          name="keywords">
+    <meta content="Judit Lázaro Moyano" name="copyright">
+    <meta content="JuditKaramazov" name="author">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="css/swiper-bundle.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="assets/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="assets/favicon//favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="assets/favicon//favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link href="assets/favicon//site.webmanifest" rel="manifest">
+    <title>Badr Kacimi | Portfolio</title>
 </head>
+
 <body>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">Badr Kacimi</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#journey">My Journey</a></li>
-                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                <li class="nav-item"><a class="nav-link" href="#hobbies">Hobbies</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
 <!-- Header -->
-<header>
-    <div class="container">
-        <h1 data-aos="fade-up">Hi, I'm Badr Kacimi</h1>
-        <p data-aos="fade-up" data-aos-delay="200">Senior Software Engineer with a passion for backend development, cloud infrastructure, and tech trends. "Code with purpose, craft with passion."</p>
-        <a href="#contact" class="btn btn-custom mt-4 hvr-bounce-to-right" data-aos="fade-up" data-aos-delay="400">Get In Touch</a>
-    </div>
+<header class="header" id="header">
+    <nav class="nav container">
+        <a class="nav-logo" href="#">Badr</a>
+
+        <!-- Navigation -->
+        <div class="nav-menu" id="nav-menu">
+            <ul class="nav-list grid">
+                <li class="nav-item">
+                    <a class="nav-link active-link" href="#home">
+                        <i class="fas fa-home nav-link-icon"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">
+                        <i class="fas fa-user nav-link-icon"></i> About
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#experience">
+                        <i class="fas fa-suitcase nav-link-icon"></i> Experience
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#articles">
+                        <i class="fas fa-file-alt nav-link-icon"></i> Articles
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">
+                        <i class="fas fa-envelope nav-link-icon"></i> Contact
+                    </a>
+                </li>
+            </ul>
+            <i class="fas fa-times nav-close" id="nav-close"></i>
+        </div>
+        <div class="nav-btns">
+
+            <!-- Theme toggler -->
+            <i class="fas fa-moon change-theme" id="theme-button"></i>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-qrcode"></i>
+            </div>
+        </div>
+    </nav>
 </header>
 
-<!-- About Section -->
-<section id="about" class="section">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <h2 data-aos="fade-right">About Me</h2>
-                <p data-aos="fade-right" data-aos-delay="200">I'm an adaptable Senior Software Engineer based in Brussels, Belgium, with extensive experience in backend development, cloud infrastructure, and emerging tech, particularly in Generative AI. I enjoy solving complex problems, working in Agile environments, and writing tech articles on platforms like Medium and Quora.</p>
-                <p data-aos="fade-right" data-aos-delay="300">In my free time, you can find me playing football, listening to music, or engaging in e-sport competitions, especially Call of Duty Mobile.</p>
+<!-- Main -->
+<main class="main">
+    <!-- Home section -->
+    <section class="home section" id="home">
+        <div class="home-container container grid">
+            <div class="home-content grid">
+                <div class="home-social">
+                    <a class="home-social-icon" href="https://www.linkedin.com/in/badr-kacimi/" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="home-social-icon" href="mailto:badrvkacimi@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a class="home-social-icon" href="https://medium.com/@badrvkacimi" target="_blank">
+                        <i class="fab fa-medium footer-social"></i>
+                    </a>
+                    <a class="home-social-icon" href="https://github.com/badrkacimi" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                <div class="home-img">
+                    <svg class="home-blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <mask id="mask0" mask-type="alpha">
+                            <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547
+                            130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
+                            97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
+                            0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"/>
+                        </mask>
+                        <g mask="url(#mask0)">
+                            <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346
+                            165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403
+                            129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028
+                            -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" fill="#4B9CD3"/>
+                            <image class="home-blob-img" x='12' xlink:href="img/profile.png" y='18'/>
+                        </g>
+                    </svg>
+
+                </div>
+
+                <div class="home-data">
+                    <h1 class="home-data-title">Badr Kacimi</h1>
+                    <h3 class="home-data-subtitle">Senior Consultant</h3>
+                    <p class="home-data-description">Software & Cloud</p>
+                    <a class="button button-flex" href="#contact">
+                        Contact Me <i class="fab fa-telegram-plane button-icon"></i>
+                    </a>
+                </div>
             </div>
-            <div class="col-lg-6">
-                <img src="https://source.unsplash.com/600x400/?developer,programming" alt="Coding" class="img-fluid rounded" data-aos="fade-left">
+            <div class="home-scroll">
+                <a class="home-scroll-button button-flex" href="#about">
+                    <span class="home-scroll-button-name">Scroll down</span>
+                    <i class="fas fa-arrow-down home-scroll-button-arrow"></i>
+                </a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Journey Section -->
-<section id="journey" class="section bg-light">
-    <div class="container">
-        <h2 data-aos="fade-up">My Journey</h2>
-        <div class="timeline">
-            <div class="timeline-item" data-aos="fade-right">
-                <h5>2023 - Present: Blue Harvest - Senior Consultant</h5>
-                <p>Leading GenAI initiatives, backend microservices development, and AI chatbot optimization. Collaborated with Tata Steel Netherlands and Belfius Bank.</p>
+    <!-- About section -->
+    <section class="about section" id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-container-img">
+            <img alt="root visual asset (cover)." class="about-container-imgAlt" src="img/ziz-cover.png">
+        </div>
+        <div class="about-container-data">
+            <p class="about-container-img-description">
+                Ziz Valley, Morocco
+            </p>
+        </div>
+        <div class="about-container-data">
+            <div class="about-container-data-info">
+                <div>
+                    <span class="about-container-data-info-title">6+</span>
+                    <span class="about-container-data-name">Years of <br> experience</span>
+                </div>
+                <div>
+                    <span class="about-container-data-info-title">working in</span>
+                    <span class="about-container-data-name">Financial and other <br> industries</span>
+                </div>
+                <div>
+                    <span class="about-container-data-info-title">3+</span>
+                    <span class="about-container-data-name">Spoken <br> languages</span>
+                </div>
             </div>
-            <div class="timeline-item" data-aos="fade-left">
-                <h5>2022 - 2023: TUI - Software Engineer</h5>
-                <p>Worked on AWS migration projects, managed microservices, and developed event-driven architecture solutions.</p>
-            </div>
-            <div class="timeline-item" data-aos="fade-right">
-                <h5>2021 - 2022: Payment Center For Africa - Lead Software Engineer</h5>
-                <p>Led BFF architecture implementation and frontend development for TradeNet portal. Worked with cybersecurity teams to address vulnerabilities.</p>
-            </div>
-            <div class="timeline-item" data-aos="fade-left">
-                <h5>2018 - 2021: EURAFRIC INFORMATION - Software Engineer</h5>
-                <p>Developed core banking solutions including batch processes and web services for multiple clients.</p>
+            <p class="about-container-data-description">
+                Adaptable technologist with extensive experience in backend development and a growing focus on
+                Cloud Infrastructure and Generative AI. Skilled in delivering cross-functional solutions within
+                Agile environments and mentoring teams through complex technical and strategic challenges.
+            </p>
+            <div class="about-buttons">
+                <a class="button button-flex" download="" href="assets/cv-glob-badr-kacimi.pdf">
+                    Download CV <i class="fas fa-download button-icon"></i>
+                </a>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+    <!-- Experience section -->
+    <section class="experience section" id="experience">
+        <h2 class="section-title">Experience</h2>
+        <span class="section-subtitle">Professional journey</span>
 
-<!-- Projects Section -->
-<section id="projects" class="section">
-    <div class="container">
-        <h2 data-aos="fade-up">Projects</h2>
-        <div class="row">
-            <div class="col-md-4" data-aos="zoom-in">
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">GitHub Projects</h5>
-                        <p class="card-text">Check out my code repositories and contributions on <a href="https://github.com/badrkacimi" target="_blank">GitHub</a>.</p>
+        <div class="experience-container container">
+            <div class="experience-tabs">
+                <div class="experience-tabs-button button-flex" data-target="#work">
+                    <i class="fas fa-briefcase experience-icon"></i>
+                    Work
+                </div>
+                <div class="experience-tabs-button button-flex experience-active" data-target="#education">
+                    <i class="fas fa-graduation-cap experience-icon"></i>
+                    Education
+                </div>
+
+            </div>
+            <div class="experience-sections">
+                <!-- Experience content 2: Work -->
+                <div class="experience-content" data-content id="work">
+                    <div class="experience-data">
+                        <div class="experience-data-alt">
+                            <h3 class="experience-title">Senior Consultant</h3>
+                            <span class="experience-subtitle">Blue Harvest</span><br/>
+                            <span class="experience-subtitle">Brussels, Belgium</span>
+                            <div class="experience-calendar">
+                                <i class="fas fa-calendar-alt"></i>
+                                2023 - Now
+                            </div>
+                        </div>
+                        <div>
+                            <span class="experience-rounder"></span>
+                            <span class="experience-line"></span>
+                        </div>
+                    </div>
+                    <!-- Experience section 2: second element -->
+                    <div class="experience-data">
+                        <div></div>
+                        <div>
+                            <span class="experience-rounder"></span>
+                            <span class="experience-line"></span>
+                        </div>
+                        <div class="experience-data-alt">
+                            <h3 class="experience-title">Research & Software Engineer</h3>
+                            <span class="experience-subtitle">TUI Musement</span><br/>
+                            <span class="experience-subtitle">Errachidia, Morocco</span>
+                            <div class="experience-calendar">
+                                <i class="fas fa-calendar-alt"></i>
+                                2022 - 2023
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Experience section 2: third element -->
+                    <div class="experience-data">
+                        <div class="experience-data-alt">
+                            <h3 class="experience-title">Lead Software Engineer</h3>
+                            <span class="experience-subtitle">Payment Center For Africa</span><br/>
+                            <span class="experience-subtitle">Casablanca, Morocco</span>
+                            <div class="experience-calendar">
+                                <i class="fas fa-calendar-alt"></i>
+                                2021 - 2022
+                            </div>
+                        </div>
+                        <div>
+                            <span class="experience-rounder"></span>
+                            <span class="experience-line"></span>
+                        </div>
+                    </div>
+                    <!-- Experience section 2: fourth element -->
+                    <div class="experience-data">
+                        <div></div>
+                        <div>
+                            <span class="experience-rounder"></span>
+                        </div>
+                        <div class="experience-data-alt">
+                            <h3 class="experience-title">Software Engineer</h3>
+                            <span class="experience-subtitle">EURAFRIC INFORMATION</span><br/>
+                            <span class="experience-subtitle">Bouskoura, Morocco</span>
+                            <div class="experience-calendar">
+                                <i class="fas fa-calendar-alt"></i>
+                                2018 - 2021
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Quora and Medium</h5>
-                        <p class="card-text">Read my tech articles on <a href="https://quora.com/profile/Badr-Kacimi" target="_blank">Quora</a> and <a href="https://medium.com/@badrkacimi" target="_blank">Medium</a>.</p>
+                <!-- Experience section 1: Education -->
+                <div class="experience-content experience-active" data-content id="education">
+                    <div class="experience-data">
+                        <div class="experience-data-alt">
+                            <h3 class="experience-title">MEng (Engineer):<br> Computer Science </h3>
+                            <span class="experience-subtitle">National Institute of Statistics and Applied
+                                    Economicse</span>
+                            <span class="experience-subtitle">Rabat, Morocco</span>
+                            <div class="experience-calendar">
+                                <i class="fas fa-calendar-alt"></i>
+                                2015 - 2018
+                            </div>
+                        </div>
+                        <div>
+                            <span class="experience-rounder"></span>
+                            <span class="experience-line"></span>
+                        </div>
+                    </div>
+                    <!-- Experience section 1: second element -->
+                    <div class="experience-data">
+                        <div></div>
+                        <div>
+                            <span class="experience-rounder"></span>
+                        </div>
+                        <div class="experience-data-alt">
+                            <h3 class="experience-title">Mathematics and Physics</h3>
+                            <span class="experience-subtitle">CPGE Ibn Ghazi Al Maknassi</span><br>
+                            <span class="experience-subtitle">Meknés, Morocco</span>
+                            <div class="experience-calendar">
+                                <i class="fas fa-calendar-alt"></i>
+                                2013 - 2015
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Behance</h5>
-                        <p class="card-text">Explore my design work on <a href="https://www.behance.net/badrkacimi" target="_blank">Behance</a>.</p>
+
+                <!-- Articles section -->
+                <section class="articles section" id="articles">
+                    <h2 class="section-title">Articles</h2>
+                    <span class="section-subtitle">Most recent work & events</span>
+
+                    <div class="articles-container container swiper-container">
+                        <div class="swiper-wrapper">
+                            <!-- Articles section: first element -->
+                            <div class="articles-content grid swiper-slide">
+                                <img alt="Articles"
+                                     class="article-img" src="https://secure.meetupstatic.com/photos/event/7/f/b/a/600_524552698.webp?w=750">
+                                <div class="articles-data">
+                                    <h3 class="articles-title">Java Evolutions with Badr Kacimi and Simon Ritter
+                                    </h3>
+                                    <p class="articles-description">December edition of BeJUG</p>
+                                    <p class="articles-description">Ghent, Brussles | 2024, December</p>
+                                    <a class="button button-flex button-small articles-button"
+                                       href="https://www.meetup.com/belgian-java-user-group/events/304395041/?eventOrigin=group_upcoming_events">
+                                        Check <i class="fas fa-arrow-right button-icon"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Articles section: second element -->
+                            <div class="articles-content grid swiper-slide">
+                                <img alt="Articles"
+                                     class="article-img" src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*m7L6Hsf1Zb5u6B2u_29nMA.png">
+                                <div class="articles-data">
+                                    <h3 class="articles-title">Fine-Tuning GPT-4o: SVG Image Generation — A
+                                        Practical Case Study</h3>
+                                    <p class="articles-description">Medium articles</p>
+                                    <p class="articles-description">Gen AI | 2024, November</p>
+                                    <a class="button button-flex button-small articles-button"
+                                       href="https://medium.com/@badrvkacimi/fine-tuning-gpt-4o-svg-image-generation-a-practical-case-study-ff102a1b25d7">
+                                        Read <i class="fas fa-arrow-right button-icon"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- Articles section: third element -->
+                            <div class="articles-content grid swiper-slide">
+                                <img alt="Articles"
+                                     class="article-img" src="https://miro.medium.com/v2/resize:fit:1400/format:webp/0*OCakKX3SlYuzfX9V.png">
+                                <div class="articles-data">
+                                    <h3 class="articles-title">Observability with OpenTelemtry Serie: (Zero-Code)
+                                        with Jaeger in Java</h3>
+                                    <p class="articles-description">Medium articles</p>
+                                    <p class="articles-description">Java, APM | 2024, May</p>
+                                    <a class="button button-flex button-small articles-button"
+                                       href="https://medium.com/@badrvkacimi/observability-with-opentelemtry-serie-zero-code-with-jaeger-in-java-de4ba16e0971">
+                                        Read <i class="fas fa-arrow-right button-icon"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next">
+                            <i class="fas fa-angle-right swiper-articles-icon"></i>
+                        </div>
+                        <div class="swiper-button-prev">
+                            <i class="fas fa-angle-left swiper-articles-icon"></i>
+                        </div>
+                        <div class="swiper-pagination"></div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+                </section>
 
-<!-- Hobbies Section -->
-<section id="hobbies" class="hobbies-section section">
-    <div class="container">
-        <h2 class="text-center" data-aos="fade-up">Hobbies</h2>
-        <div class="row">
-            <div class="col-md-4 hobbies-item" data-aos="fade-up" data-aos-delay="100">
-                <div class="hobbies-icon">
-                    <i class="fas fa-futbol"></i>
-                </div>
-                <h5>Football</h5>
-                <p>Playing football helps me stay active and improve my teamwork skills.</p>
-            </div>
-            <div class="col-md-4 hobbies-item" data-aos="fade-up" data-aos-delay="200">
-                <div class="hobbies-icon">
-                    <i class="fas fa-music"></i>
-                </div>
-                <h5>Music</h5>
-                <p>I enjoy listening to a wide variety of music genres to relax and get inspired.</p>
-            </div>
-            <div class="col-md-4 hobbies-item" data-aos="fade-up" data-aos-delay="300">
-                <div class="hobbies-icon">
-                    <i class="fas fa-gamepad"></i>
-                </div>
-                <h5>E-sport (Call of Duty Mobile)</h5>
-                <p>I love competing in e-sport games, especially Call of Duty Mobile.</p>
-            </div>
-        </div>
-    </div>
-</section>
+                <!-- Contact section -->
+                <section class="contact section" id="contact">
+                    <h2 class="section-title">Contact</h2>
+                    <span class="section-subtitle">Let's get in touch</span>
 
-<!-- Contact Section -->
-<section id="contact" class="section bg-light">
-    <div class="container">
-        <h2 data-aos="fade-up">Contact Me</h2>
-        <p data-aos="fade-up" data-aos-delay="200">If you're a recruiter or simply want to connect, feel free to reach out via <a href="mailto:badrvkacimi@gmail.com">email</a> or on <a href="https://linkedin.com/in/badr-kacimi" target="_blank">LinkedIn</a>.</p>
-    </div>
-</section>
+                    <div class="contact-container container grid">
+                        <div class="contact-items">
+                            <div class="contact-information">
+                                <div class="contact-details">
+                                    <i class="fas fa-map-marker-alt contact-icon"></i>
+                                    <div></div>
+                                    <span class="contact-subtitle">Brussels, Belgium</span>
+                                </div>
+                            </div>
+                            <div class="contact-information">
+                                <div class="contact-details">
+                                    <i class="far fa-envelope contact-icon"></i>
+                                    <div></div>
+                                    <span class="contact-subtitle">badrvkacimi@gmail.com</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form class="contact-form grid" id="contact-form">
+                            <div class="contact-inputs grid">
+                                <div class="contact-content">
+                                    <label class="contact-label" for="name">Your Name</label>
+                                    <input class="contact-input" id="name" name="from_name" required type="text">
+                                </div>
+                                <div class="contact-content">
+                                    <label class="contact-label" for="email">Your Email</label>
+                                    <input class="contact-input" id="email" name="reply_to" required type="email">
+                                </div>
+                            </div>
+                            <div class="grid">
+                                <div class="contact-content">
+                                    <label class="contact-label" for="subject">Subject</label>
+                                    <input class="contact-input" id="subject" name="subject" required type="text">
+                                </div>
+                                <div class="contact-content">
+                                    <label class="contact-label" for="message">Message</label>
+                                    <textarea class="contact-input" id="message" name="message" required
+                                              rows="5" style="resize: none;"></textarea>
+                                </div>
+                            </div>
+                            <div class="contact-button">
+                                <button class="button button-flex" type="submit">
+                                    Send Message <i class="fab fa-telegram-plane button-icon"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+</main>
 
 <!-- Footer -->
-<footer>
-    <p>&copy; 2024 Badr Kacimi. All rights reserved.</p>
-    <div class="social-icons">
-        <a href="https://github.com/badrkacimi" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://linkedin.com/in/badr-kacimi" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:badrvkacimi@gmail.com"><i class="fas fa-envelope"></i></a>
+<footer class="footer">
+    <div class="footer-bg">
+        <div class="footer-container container grid">
+            <div class="footer-texts">
+                <h1 class="footer-title">Badr Kacimi</h1>
+                <span class="footer-subtitle">Software Engineer</span>
+            </div>
+            <!-- Social links -->
+            <ul class="footer-links">
+                <li>
+                    <a class="footer-link" href="#experience">Experience</a>
+                </li>
+                <li>
+                    <a class="footer-link" href="#articles">Articles</a>
+                </li>
+                <li>
+                    <a class="footer-link" href="#about">About </a>
+                </li>
+
+            </ul>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/badr-kacimi/" target="_blank">
+                    <i class="fab fa-linkedin-in footer-social"></i>
+                </a>
+                <a href="https://www.instagram.com/badr_kacimi/" target="_blank">
+                    <i class="fab fa-instagram footer-social"></i>
+                </a>
+                <a href="https://www.facebook.com/badr.kacimi" target="_blank">
+                    <i class="fab fa-facebook footer-social"></i>
+                </a>
+            </div>
+        </div>
     </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-<script>
-    AOS.init();
-</script>
+<!-- Scroll & scripts -->
+<a class="scrollup" href="#" id="scroll-up">
+    <i class="fas fa-arrow-up scrollup-icon"></i>
+</a>
+
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/027d3564f6.js"></script>
+<script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+<script src="js/swiper-bundle.js"></script>
+<script src="js/main.js"></script>
+
 </body>
+
 </html>
