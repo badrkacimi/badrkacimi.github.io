@@ -296,29 +296,6 @@ img {
   color: var(--accent-dark);
 }
 
-/* Hero Background (Home + Experience) */
-.hero-background {
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-background::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('https://scontent-bru2-1.xx.fbcdn.net/v/t39.30808-6/556041113_24869361102659411_1702172220625765462_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=2a1932&_nc_ohc=bX5o7JLOUwkQ7kNvwGOe_21&_nc_oc=AdpU1iITQX5bjHY58xIjORRAOJjLJZbnhpNuMOJF_R6Ucgf34o_OcAYLuxvPO-dbyvY&_nc_zt=23&_nc_ht=scontent-bru2-1.xx&_nc_gid=hhDEbBaTH4ENEwEPZh7g6w&_nc_ss=7a3a8&oh=00_Af0QwrbkOVrJXW6yQZ5EjsP7L0l516Kbni1nZpsVSvxXPg&oe=69EB0DC6');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.35;
-  z-index: 0;
-}
-
-.hero-background > * {
-  position: relative;
-  z-index: 1;
-}
-
 /* Home */
 
 .home-container {
