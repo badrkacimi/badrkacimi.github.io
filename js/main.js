@@ -145,6 +145,98 @@ if (eventsPrevBtn && eventsNextBtn && eventsCarousel && eventsSlider) {
   eventsNextBtn.addEventListener("click", resumeEventsAnimation)
 }
 
+/* Videos Carousel Navigation */
+const videosPrevBtn = document.getElementById("videosPrevBtn")
+const videosNextBtn = document.getElementById("videosNextBtn")
+const videosCarousel = document.querySelector(".videos-carousel")
+const videosSlider = document.querySelector(".videos-slider")
+
+if (videosPrevBtn && videosNextBtn && videosCarousel && videosSlider) {
+  const initialVideoCards = Array.from(videosSlider.querySelectorAll(".video-card"))
+
+  initialVideoCards.forEach(card => {
+    const clone = card.cloneNode(true)
+    videosSlider.appendChild(clone)
+  })
+
+  const videoCardWidth = 420
+  const videoGap = 32
+  const videoScrollAmount = videoCardWidth + videoGap
+
+  videosPrevBtn.addEventListener("click", () => {
+    videosSlider.style.animationPlayState = "paused"
+    videosCarousel.scrollLeft -= videoScrollAmount
+  })
+
+  videosNextBtn.addEventListener("click", () => {
+    videosSlider.style.animationPlayState = "paused"
+    videosCarousel.scrollLeft += videoScrollAmount
+  })
+
+  let videosAnimTimeout
+  const resumeVideosAnimation = () => {
+    clearTimeout(videosAnimTimeout)
+    videosAnimTimeout = setTimeout(() => {
+      videosSlider.style.animationPlayState = "running"
+    }, 2000)
+  }
+
+  videosPrevBtn.addEventListener("click", resumeVideosAnimation)
+  videosNextBtn.addEventListener("click", resumeVideosAnimation)
+}
+
+/* Video play button — embed YouTube iframe on click */
+document.querySelectorAll(".video-play-btn").forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault()
+    const videoId = btn.getAttribute("data-video-id")
+    if (!videoId) return
+    const thumbnail = btn.closest(".video-card-thumbnail")
+    thumbnail.classList.add("playing")
+    thumbnail.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(videoId) + '?autoplay=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen title="YouTube video"></iframe>'
+  })
+})
+
+/* Certifications Carousel Navigation */
+const certsPrevBtn = document.getElementById("certsPrevBtn")
+const certsNextBtn = document.getElementById("certsNextBtn")
+const certsCarousel = document.querySelector(".certs-carousel")
+const certsSlider = document.querySelector(".certs-slider")
+
+if (certsPrevBtn && certsNextBtn && certsCarousel && certsSlider) {
+  const initialCertCards = Array.from(certsSlider.querySelectorAll(".cert-card"))
+
+  initialCertCards.forEach(card => {
+    const clone = card.cloneNode(true)
+    certsSlider.appendChild(clone)
+  })
+
+  const certCardWidth = 340
+  const certGap = 32
+  const certScrollAmount = certCardWidth + certGap
+
+  certsPrevBtn.addEventListener("click", () => {
+    certsSlider.style.animationPlayState = "paused"
+    certsCarousel.scrollLeft -= certScrollAmount
+  })
+
+  certsNextBtn.addEventListener("click", () => {
+    certsSlider.style.animationPlayState = "paused"
+    certsCarousel.scrollLeft += certScrollAmount
+  })
+
+  let certsAnimTimeout
+  const resumeCertsAnimation = () => {
+    clearTimeout(certsAnimTimeout)
+    certsAnimTimeout = setTimeout(() => {
+      certsSlider.style.animationPlayState = "running"
+    }, 2000)
+  }
+
+  certsPrevBtn.addEventListener("click", resumeCertsAnimation)
+  certsNextBtn.addEventListener("click", resumeCertsAnimation)
+}
+
 /* Articles - no carousel needed */
 
 /* Scroll sections (active link) */

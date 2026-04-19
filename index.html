@@ -36,12 +36,22 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#sessions">
-                        <i class="fas fa-presentation nav-link-icon"></i> Sessions
+                        <i class="fas fa-presentation nav-link-icon"></i> Live Sessions
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#articles">
                         <i class="fas fa-newspaper nav-link-icon"></i> Articles
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#videos">
+                        <i class="fas fa-video nav-link-icon"></i> Sessions Recording
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#certifications">
+                        <i class="fas fa-certificate nav-link-icon"></i> Certifications
                     </a>
                 </li>
                 <li class="nav-item">
@@ -236,7 +246,7 @@
     </section>
 
     <section class="sessions section" id="sessions">
-        <h2 class="section-title">Events & Conferences</h2>
+        <h2 class="section-title">Live Sessions</h2>
         <span class="section-subtitle">Speaking engagements, meetups, and tech events</span>
 
         <div class="events-carousel-wrapper">
@@ -370,8 +380,46 @@
         </div>
     </section>
 
+    <section class="videos section" id="videos">
+        <h2 class="section-title">Sessions Recording</h2>
+        <span class="section-subtitle">Recorded talks and presentations on YouTube</span>
+
+        <div class="videos-carousel-wrapper">
+            <div class="videos-carousel">
+                <div class="videos-slider" id="videos-slider">
+
+                    <!-- Video 1 -->
+                    <div class="video-card">
+                        <div class="video-card-thumbnail">
+                            <img src="https://img.youtube.com/vi/EgRRKSlI1wo/hqdefault.jpg" alt="YouTube Video" loading="lazy">
+                            <button class="video-play-btn" data-video-id="EgRRKSlI1wo" aria-label="Play video">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                        <div class="video-card-body">
+                            <h3 class="video-title">BeJUG: From Memory Leaks to Agentic AI — Java Talks in Brussels</h3>
+                            <div class="video-meta">
+                                <span class="video-channel"><i class="fab fa-youtube"></i> YouTube</span>
+                            </div>
+                        </div>
+                        <div class="video-card-footer">
+                            <a class="video-link" href="https://www.youtube.com/watch?v=EgRRKSlI1wo" target="_blank" rel="noopener noreferrer">
+                                Watch on YouTube <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="videos-carousel-nav">
+                <button class="carousel-btn videos-prev" id="videosPrevBtn"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-btn videos-next" id="videosNextBtn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
     <section class="articles section" id="articles">
-        <h2 class="section-title">My Tech Articles</h2>
+        <h2 class="section-title">Articles</h2>
         <span class="section-subtitle">Latest articles from Medium</span>
 
         <div class="articles-grid-wrapper container">
@@ -382,6 +430,154 @@
                 <span>See more articles on Medium</span>
                 <i class="fas fa-arrow-right"></i>
             </a>
+        </div>
+    </section>
+
+    <section class="certifications section" id="certifications">
+        <h2 class="section-title">Certifications</h2>
+        <span class="section-subtitle">Professional credentials and certificates</span>
+
+        <div class="certs-carousel-wrapper">
+            <div class="certs-carousel">
+                <div class="certs-slider" id="certs-slider">
+
+                    <div class="cert-card">
+                        <div class="cert-logo">
+                            <img src="https://www.oracle.com/a/ocom/img/oracle-logo.svg" alt="Oracle">
+                        </div>
+                        <div class="cert-body">
+                            <h3 class="cert-title">Oracle Fusion AI Agent Studio Associate - Rel 1</h3>
+                            <p class="cert-issuer"><i class="fas fa-building"></i> Oracle</p>
+                            <p class="cert-date"><i class="fas fa-calendar-alt"></i> Issued Jan 2026</p>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-logo">
+                            <img src="https://images.credly.com/images/8b943c4b-c186-4e9f-84aa-004322b76eed/image.png" alt="AXELOS">
+                        </div>
+                        <div class="cert-body">
+                            <h3 class="cert-title">ITIL® V4 IT Service Management</h3>
+                            <p class="cert-issuer"><i class="fas fa-building"></i> AXELOS Global Best Practice</p>
+                            <p class="cert-date"><i class="fas fa-calendar-alt"></i> Issued Nov 2025</p>
+                            <div class="cert-skills"><i class="fas fa-tags"></i> Agile &amp; Waterfall Methodologies, IT Service Management</div>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-logo">
+                            <img src="https://www.google.com/s2/favicons?sz=128&domain=capgemini.com" alt="Capgemini Institut">
+                        </div>
+                        <div class="cert-body">
+                            <h3 class="cert-title">Global Banking - L1</h3>
+                            <p class="cert-issuer"><i class="fas fa-building"></i> Capgemini Institut</p>
+                            <p class="cert-date"><i class="fas fa-calendar-alt"></i> Issued Oct 2024</p>
+                            <div class="cert-skills"><i class="fas fa-tags"></i> Private Wealth Management, Financial Services</div>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-logo">
+                            <img src="https://www.google.com/s2/favicons?sz=128&domain=capgemini.com" alt="Capgemini Institut">
+                        </div>
+                        <div class="cert-body">
+                            <h3 class="cert-title">Certified Architect - L1</h3>
+                            <p class="cert-issuer"><i class="fas fa-building"></i> Capgemini Institut</p>
+                            <p class="cert-date"><i class="fas fa-calendar-alt"></i> Issued Apr 2025</p>
+                            <div class="cert-skills"><i class="fas fa-tags"></i> Architectural Design, Solution Architecture</div>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-logo">
+                            <img src="https://img.icons8.com/color/480/google-logo.png" alt="Google">
+                        </div>
+                        <div class="cert-body">
+                            <h3 class="cert-title">Google Project Management: Professional Certificate</h3>
+                            <p class="cert-issuer"><i class="fas fa-building"></i> Google</p>
+                            <p class="cert-date"><i class="fas fa-calendar-alt"></i> Issued Jan 2024</p>
+                            <div class="cert-skills"><i class="fas fa-tags"></i> Scrum, IT Project Management</div>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-logo">
+                            <img src="https://www.google.com/s2/favicons?sz=128&domain=certiprof.com" alt="Certiprof">
+                        </div>
+                        <div class="cert-body">
+                            <h3 class="cert-title">Scrum Foundation Certificate (SFC)</h3>
+                            <p class="cert-issuer"><i class="fas fa-building"></i> Certiprof</p>
+                            <p class="cert-date"><i class="fas fa-calendar-alt"></i> Issued Jul 2022</p>
+                            <div class="cert-skills"><i class="fas fa-tags"></i> Scrum</div>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-logo">
+                            <img src="https://www.google.com/s2/favicons?sz=128&domain=linuxfoundation.org" alt="The Linux Foundation">
+                        </div>
+                        <div class="cert-body">
+                            <h3 class="cert-title">Certified Kubernetes Administrator (CKA)</h3>
+                            <p class="cert-issuer"><i class="fas fa-building"></i> The Linux Foundation</p>
+                            <p class="cert-date"><i class="fas fa-calendar-alt"></i> Issued Sep 2024</p>
+                            <div class="cert-skills"><i class="fas fa-tags"></i> Kubernetes</div>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-logo">
+                            <img src="https://www.oracle.com/a/ocom/img/oracle-logo.svg" alt="Oracle">
+                        </div>
+                        <div class="cert-body">
+                            <h3 class="cert-title">Oracle Cloud Infrastructure Generative AI Certified Professional</h3>
+                            <p class="cert-issuer"><i class="fas fa-building"></i> Oracle</p>
+                            <p class="cert-date"><i class="fas fa-calendar-alt"></i> Issued Jun 2024</p>
+                            <div class="cert-skills"><i class="fas fa-tags"></i> Cloud Applications, Artificial Intelligence (AI)</div>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-logo">
+                            <img src="https://img.icons8.com/color/480/amazon-web-services.png" alt="AWS">
+                        </div>
+                        <div class="cert-body">
+                            <h3 class="cert-title">AWS Certified Developer – Associate</h3>
+                            <p class="cert-issuer"><i class="fas fa-building"></i> Amazon Web Services (AWS)</p>
+                            <p class="cert-date"><i class="fas fa-calendar-alt"></i> Issued Feb 2023</p>
+                            <div class="cert-skills"><i class="fas fa-tags"></i> AWS CodeCommit, Cloud Applications</div>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-logo">
+                            <img src="https://img.icons8.com/color/480/google-logo.png" alt="Google Ads">
+                        </div>
+                        <div class="cert-body">
+                            <h3 class="cert-title">Google Ads Certifications</h3>
+                            <p class="cert-issuer"><i class="fas fa-building"></i> Google Ads (Google Partner)</p>
+                            <p class="cert-date"><i class="fas fa-calendar-alt"></i> Issued Nov 2016</p>
+                            <div class="cert-skills"><i class="fas fa-tags"></i> Digital Marketing</div>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-logo">
+                            <img src="https://img.icons8.com/color/480/ibm.png" alt="IBM">
+                        </div>
+                        <div class="cert-body">
+                            <h3 class="cert-title">Big Data Developer - Mastery Award for Students 2016</h3>
+                            <p class="cert-issuer"><i class="fas fa-building"></i> IBM</p>
+                            <p class="cert-date"><i class="fas fa-calendar-alt"></i> Issued Nov 2017</p>
+                            <div class="cert-skills"><i class="fas fa-tags"></i> Artificial Intelligence (AI)</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="certs-carousel-nav">
+                <button class="carousel-btn certs-prev" id="certsPrevBtn"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-btn certs-next" id="certsNextBtn"><i class="fas fa-chevron-right"></i></button>
+            </div>
         </div>
     </section>
 
