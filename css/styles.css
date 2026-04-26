@@ -710,6 +710,8 @@ body.dark-theme .home-container .home-content .home-data-title {
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
   background: linear-gradient(90deg, var(--body-color) 0%, transparent 10%, transparent 90%, var(--body-color) 100%);
   padding: 2rem 4rem;
   scroll-behavior: smooth;
@@ -724,7 +726,6 @@ body.dark-theme .home-container .home-content .home-data-title {
 .videos-slider {
   display: flex;
   gap: 2rem;
-  animation: videos-carousel-slide 45s linear infinite;
   width: max-content;
 }
 
@@ -734,11 +735,6 @@ body.dark-theme .home-container .home-content .home-data-title {
 
 .videos-carousel:hover .videos-slider {
   animation-play-state: paused;
-}
-
-@keyframes videos-carousel-slide {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-100% / 2)); }
 }
 
 .videos-carousel-nav {
@@ -1042,6 +1038,44 @@ body.dark-theme .home-container .home-content .home-data-title {
   gap: 0.4rem;
 }
 
+/* Article card header (author + date badge inline) */
+.article-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: var(--section-bg, var(--body-color));
+  border-bottom: 1px solid var(--border-color);
+}
+
+.article-author-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--text-color);
+}
+
+.article-author-badge i {
+  color: var(--accent-color);
+  font-size: 0.8rem;
+}
+
+.article-date-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--text-color);
+}
+
+.article-date-badge i {
+  color: var(--accent-color);
+  font-size: 0.8rem;
+}
+
 .medium-article-link {
   display: inline-flex;
   align-items: center;
@@ -1074,6 +1108,8 @@ body.dark-theme .home-container .home-content .home-data-title {
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
   background: linear-gradient(90deg, var(--body-color) 0%, transparent 10%, transparent 90%, var(--body-color) 100%);
   padding: 2rem 4rem;
   scroll-behavior: smooth;
@@ -1088,17 +1124,7 @@ body.dark-theme .home-container .home-content .home-data-title {
 .events-slider {
   display: flex;
   gap: 2rem;
-  animation: events-carousel-slide 45s linear infinite;
   width: max-content;
-}
-
-@keyframes events-carousel-slide {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-100% / 2));
-  }
 }
 
 .events-slider:hover {
@@ -1346,6 +1372,8 @@ body.dark-theme .home-container .home-content .home-data-title {
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
   background: linear-gradient(90deg, var(--body-color) 0%, transparent 10%, transparent 90%, var(--body-color) 100%);
   padding: 2rem 4rem;
   scroll-behavior: smooth;
@@ -1361,17 +1389,7 @@ body.dark-theme .home-container .home-content .home-data-title {
 .experience-slider {
   display: flex;
   gap: 2rem;
-  animation: carousel-slide 60s linear infinite;
   width: max-content;
-}
-
-@keyframes carousel-slide {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-100% / 2));
-  }
 }
 
 .experience-slider:hover {
@@ -1478,7 +1496,26 @@ body.dark-theme .home-container .home-content .home-data-title {
   margin-bottom: 0.75rem;
 }
 
-.experience-period,
+.experience-period {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--text-color);
+  background-color: rgba(22, 160, 133, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.experience-period i {
+  color: var(--accent-color);
+  font-size: 0.8rem;
+}
+
 .experience-location {
   color: var(--text-color-light);
   font-size: var(--smaller-font-size);
@@ -1588,6 +1625,10 @@ body.dark-theme .home-container .home-content .home-data-title {
   background: rgba(30, 41, 59, 0.6);
 }
 
+.dark-theme .article-card-header {
+  background: rgba(30, 41, 59, 0.6);
+}
+
 .dark-theme .event-card:hover {
   box-shadow: 0 15px 35px rgba(20, 184, 166, 0.2);
 }
@@ -1641,6 +1682,8 @@ body.dark-theme .home-container .home-content .home-data-title {
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
   background: linear-gradient(90deg, var(--body-color) 0%, transparent 10%, transparent 90%, var(--body-color) 100%);
   padding: 2rem 4rem;
   scroll-behavior: smooth;
@@ -1655,7 +1698,6 @@ body.dark-theme .home-container .home-content .home-data-title {
 .certs-slider {
   display: flex;
   gap: 2rem;
-  animation: certs-carousel-slide 60s linear infinite;
   width: max-content;
 }
 
@@ -1665,11 +1707,6 @@ body.dark-theme .home-container .home-content .home-data-title {
 
 .certs-carousel:hover .certs-slider {
   animation-play-state: paused;
-}
-
-@keyframes certs-carousel-slide {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-100% / 2)); }
 }
 
 .certs-carousel-nav {
@@ -1729,6 +1766,69 @@ body.dark-theme .home-container .home-content .home-data-title {
   font-weight: var(--font-bold);
   line-height: 1.4;
   margin-bottom: 0.25rem;
+}
+
+.cert-domain {
+  font-size: 0.65rem;
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.cert-domain-ai {
+  background-color: rgba(138, 43, 226, 0.1);
+  color: #8a2be2;
+}
+
+.cert-domain-management {
+  background-color: rgba(0, 123, 255, 0.1);
+  color: #007bff;
+}
+
+.cert-domain-finance {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+}
+
+.cert-domain-architecture {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: #ffc107;
+}
+
+.cert-domain-project {
+  background-color: rgba(23, 162, 184, 0.1);
+  color: #17a2b8;
+}
+
+.cert-domain-agile {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+}
+
+.cert-domain-cloud {
+  background-color: rgba(0, 188, 212, 0.1);
+  color: #00bcd4;
+}
+
+.cert-domain-cloud-ai {
+  background-color: rgba(138, 43, 226, 0.1);
+  color: #8a2be2;
+}
+
+.cert-domain-marketing {
+  background-color: rgba(232, 62, 140, 0.1);
+  color: #e83e8c;
+}
+
+.cert-domain-data {
+  background-color: rgba(102, 16, 242, 0.1);
+  color: #6610f2;
 }
 
 .cert-issuer {

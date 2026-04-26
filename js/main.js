@@ -54,41 +54,53 @@ const nextBtn = document.getElementById("nextBtn")
 const experienceCarousel = document.querySelector(".experience-carousel")
 const experienceSlider = document.querySelector(".experience-slider")
 
+const startOnePassAutoScroll = (carousel, duration = 18000, delay = 2000) => {
+  if (!carousel) return
+  const maxScroll = carousel.scrollWidth - carousel.clientWidth
+  if (maxScroll <= 0) return
+
+  let startTime = null
+  let rafId = null
+  let isAutoScrolling = true
+
+  const stop = () => {
+    isAutoScrolling = false
+  }
+
+  const animate = (timestamp) => {
+    if (!startTime) startTime = timestamp
+    const elapsed = timestamp - startTime
+    const progress = Math.min(elapsed / duration, 1)
+    carousel.scrollLeft = Math.round(maxScroll * progress)
+
+    if (progress < 1 && isAutoScrolling) {
+      rafId = requestAnimationFrame(animate)
+    }
+  }
+
+  setTimeout(() => {
+    rafId = requestAnimationFrame(animate)
+  }, delay)
+
+  return stop
+}
+
 if (prevBtn && nextBtn && experienceCarousel && experienceSlider) {
-  // Get all initial cards
-  const initialCards = Array.from(experienceSlider.querySelectorAll(".experience-card"))
-  
-  // Clone cards for seamless looping
-  initialCards.forEach(card => {
-    const clone = card.cloneNode(true)
-    experienceSlider.appendChild(clone)
-  })
-  
   const cardWidth = 350 // card width
   const gap = 32 // gap between cards
   const scrollAmount = cardWidth + gap
   
+  const stopAutoScroll = startOnePassAutoScroll(experienceCarousel)
+  
   prevBtn.addEventListener("click", () => {
-    experienceSlider.style.animationPlayState = "paused"
+    stopAutoScroll()
     experienceCarousel.scrollLeft -= scrollAmount
   })
 
   nextBtn.addEventListener("click", () => {
-    experienceSlider.style.animationPlayState = "paused"
+    stopAutoScroll()
     experienceCarousel.scrollLeft += scrollAmount
   })
-  
-  // Resume animation when not clicking buttons after 2 seconds
-  let animationTimeout
-  const resumeAnimation = () => {
-    clearTimeout(animationTimeout)
-    animationTimeout = setTimeout(() => {
-      experienceSlider.style.animationPlayState = "running"
-    }, 2000)
-  }
-  
-  prevBtn.addEventListener("click", resumeAnimation)
-  nextBtn.addEventListener("click", resumeAnimation)
 }
 
 /* Auto-tag events as Past / Upcoming */
@@ -112,37 +124,23 @@ const eventsCarousel = document.querySelector(".events-carousel")
 const eventsSlider = document.querySelector(".events-slider")
 
 if (eventsPrevBtn && eventsNextBtn && eventsCarousel && eventsSlider) {
-  const initialEventCards = Array.from(eventsSlider.querySelectorAll(".event-card"))
-
-  initialEventCards.forEach(card => {
-    const clone = card.cloneNode(true)
-    eventsSlider.appendChild(clone)
-  })
-
   const eventCardWidth = 420
   const eventGap = 32
   const eventScrollAmount = eventCardWidth + eventGap
 
+  const stopAutoScroll = startOnePassAutoScroll(eventsCarousel)
+  
   eventsPrevBtn.addEventListener("click", () => {
-    eventsSlider.style.animationPlayState = "paused"
+    stopAutoScroll()
     eventsCarousel.scrollLeft -= eventScrollAmount
   })
 
   eventsNextBtn.addEventListener("click", () => {
-    eventsSlider.style.animationPlayState = "paused"
+    stopAutoScroll()
     eventsCarousel.scrollLeft += eventScrollAmount
   })
 
-  let eventsAnimTimeout
-  const resumeEventsAnimation = () => {
-    clearTimeout(eventsAnimTimeout)
-    eventsAnimTimeout = setTimeout(() => {
-      eventsSlider.style.animationPlayState = "running"
-    }, 2000)
-  }
-
-  eventsPrevBtn.addEventListener("click", resumeEventsAnimation)
-  eventsNextBtn.addEventListener("click", resumeEventsAnimation)
+  startOnePassAutoScroll(eventsCarousel)
 }
 
 /* Videos Carousel Navigation */
@@ -152,37 +150,23 @@ const videosCarousel = document.querySelector(".videos-carousel")
 const videosSlider = document.querySelector(".videos-slider")
 
 if (videosPrevBtn && videosNextBtn && videosCarousel && videosSlider) {
-  const initialVideoCards = Array.from(videosSlider.querySelectorAll(".video-card"))
-
-  initialVideoCards.forEach(card => {
-    const clone = card.cloneNode(true)
-    videosSlider.appendChild(clone)
-  })
-
   const videoCardWidth = 420
   const videoGap = 32
   const videoScrollAmount = videoCardWidth + videoGap
 
+  const stopAutoScroll = startOnePassAutoScroll(videosCarousel, 20000)
+  
   videosPrevBtn.addEventListener("click", () => {
-    videosSlider.style.animationPlayState = "paused"
+    stopAutoScroll()
     videosCarousel.scrollLeft -= videoScrollAmount
   })
 
   videosNextBtn.addEventListener("click", () => {
-    videosSlider.style.animationPlayState = "paused"
+    stopAutoScroll()
     videosCarousel.scrollLeft += videoScrollAmount
   })
 
-  let videosAnimTimeout
-  const resumeVideosAnimation = () => {
-    clearTimeout(videosAnimTimeout)
-    videosAnimTimeout = setTimeout(() => {
-      videosSlider.style.animationPlayState = "running"
-    }, 2000)
-  }
-
-  videosPrevBtn.addEventListener("click", resumeVideosAnimation)
-  videosNextBtn.addEventListener("click", resumeVideosAnimation)
+  startOnePassAutoScroll(videosCarousel, 20000)
 }
 
 /* Video play button — embed YouTube iframe on click */
@@ -204,37 +188,23 @@ const certsCarousel = document.querySelector(".certs-carousel")
 const certsSlider = document.querySelector(".certs-slider")
 
 if (certsPrevBtn && certsNextBtn && certsCarousel && certsSlider) {
-  const initialCertCards = Array.from(certsSlider.querySelectorAll(".cert-card"))
-
-  initialCertCards.forEach(card => {
-    const clone = card.cloneNode(true)
-    certsSlider.appendChild(clone)
-  })
-
   const certCardWidth = 340
   const certGap = 32
   const certScrollAmount = certCardWidth + certGap
 
+  const stopAutoScroll = startOnePassAutoScroll(certsCarousel, 16000)
+  
   certsPrevBtn.addEventListener("click", () => {
-    certsSlider.style.animationPlayState = "paused"
+    stopAutoScroll()
     certsCarousel.scrollLeft -= certScrollAmount
   })
 
   certsNextBtn.addEventListener("click", () => {
-    certsSlider.style.animationPlayState = "paused"
+    stopAutoScroll()
     certsCarousel.scrollLeft += certScrollAmount
   })
 
-  let certsAnimTimeout
-  const resumeCertsAnimation = () => {
-    clearTimeout(certsAnimTimeout)
-    certsAnimTimeout = setTimeout(() => {
-      certsSlider.style.animationPlayState = "running"
-    }, 2000)
-  }
-
-  certsPrevBtn.addEventListener("click", resumeCertsAnimation)
-  certsNextBtn.addEventListener("click", resumeCertsAnimation)
+  startOnePassAutoScroll(certsCarousel, 16000)
 }
 
 /* Articles - no carousel needed */
@@ -339,32 +309,38 @@ const sampleArticles = [
   {
     title: "Building Scalable Backend Systems with Python",
     link: "https://medium.com/@badrvkacimi",
-    pubDate: new Date(2024, 10, 15).toISOString()
+    pubDate: new Date(2024, 10, 15).toISOString(),
+    author: 'Badr Kacimi'
   },
   {
     title: "Financial Data Processing in Banking Systems",
     link: "https://medium.com/@badrvkacimi",
-    pubDate: new Date(2024, 10, 8).toISOString()
+    pubDate: new Date(2024, 10, 8).toISOString(),
+    author: 'Badr Kacimi'
   },
   {
     title: "Microservices Architecture Best Practices",
     link: "https://medium.com/@badrvkacimi",
-    pubDate: new Date(2024, 9, 25).toISOString()
+    pubDate: new Date(2024, 9, 25).toISOString(),
+    author: 'Badr Kacimi'
   },
   {
     title: "Trade Finance Solutions for Modern Commerce",
     link: "https://medium.com/@badrvkacimi",
-    pubDate: new Date(2024, 9, 18).toISOString()
+    pubDate: new Date(2024, 9, 18).toISOString(),
+    author: 'Badr Kacimi'
   },
   {
     title: "API Design Patterns and Best Practices",
     link: "https://medium.com/@badrvkacimi",
-    pubDate: new Date(2024, 9, 10).toISOString()
+    pubDate: new Date(2024, 9, 10).toISOString(),
+    author: 'Badr Kacimi'
   },
   {
     title: "Cloud Infrastructure Optimization Strategies",
     link: "https://medium.com/@badrvkacimi",
-    pubDate: new Date(2024, 8, 28).toISOString()
+    pubDate: new Date(2024, 8, 28).toISOString(),
+    author: 'Badr Kacimi'
   }
 ]
 
@@ -373,7 +349,7 @@ function fetchMediumArticles() {
   const mediumFeedElement = document.getElementById('medium-feed')
   if (!mediumFeedElement) return
 
-  const rssUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent('https://medium.com/feed/@badrvkacimi')
+  const rssUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent('https://medium.com/feed/@badrkacimi')
 
   fetch(rssUrl)
     .then(function(response) { return response.json() })
@@ -401,7 +377,8 @@ function fetchMediumArticles() {
             link: item.link,
             pubDate: item.pubDate,
             thumbnail: thumb,
-            excerpt: descText
+            excerpt: descText,
+            author: item.author || 'Badr Kacimi'
           }
         })
         displayArticles(articles, mediumFeedElement)
@@ -464,6 +441,27 @@ function createMediumArticleCard(article) {
   img.loading = 'lazy'
   imgWrapper.appendChild(img)
 
+  // Create article header similar to event cards
+  var header = document.createElement('div')
+  header.className = 'article-card-header'
+  
+  var authorBadge = document.createElement('span')
+  authorBadge.className = 'article-author-badge'
+  var authorIcon = document.createElement('i')
+  authorIcon.className = 'fas fa-user'
+  authorBadge.appendChild(authorIcon)
+  authorBadge.appendChild(document.createTextNode(' ' + (article.author || 'Badr Kacimi')))
+  
+  var dateBadge = document.createElement('span')
+  dateBadge.className = 'article-date-badge'
+  var calIcon = document.createElement('i')
+  calIcon.className = 'fas fa-calendar-alt'
+  dateBadge.appendChild(calIcon)
+  dateBadge.appendChild(document.createTextNode(' ' + formattedDate))
+  
+  header.appendChild(authorBadge)
+  header.appendChild(dateBadge)
+
   var content = document.createElement('div')
   content.className = 'medium-article-content'
 
@@ -483,13 +481,6 @@ function createMediumArticleCard(article) {
     content.appendChild(h3)
   }
 
-  var meta = document.createElement('p')
-  meta.className = 'medium-article-meta'
-  var calIcon = document.createElement('i')
-  calIcon.className = 'fas fa-calendar-alt'
-  meta.appendChild(calIcon)
-  meta.appendChild(document.createTextNode(' ' + formattedDate))
-
   var a = document.createElement('a')
   a.href = link
   a.target = '_blank'
@@ -500,10 +491,10 @@ function createMediumArticleCard(article) {
   arrowIcon.className = 'fas fa-arrow-right'
   a.appendChild(arrowIcon)
 
-  content.appendChild(meta)
   content.appendChild(a)
 
   card.appendChild(imgWrapper)
+  card.appendChild(header)
   card.appendChild(content)
   
   return card
