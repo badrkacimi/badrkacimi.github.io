@@ -207,6 +207,32 @@ if (certsPrevBtn && certsNextBtn && certsCarousel && certsSlider) {
   startOnePassAutoScroll(certsCarousel, 16000)
 }
 
+/* Hobbies Carousel Navigation */
+const hobbiesPrevBtn = document.getElementById("hobbiesPrevBtn")
+const hobbiesNextBtn = document.getElementById("hobbiesNextBtn")
+const hobbiesCarousel = document.querySelector(".hobbies-carousel")
+const hobbiesSlider = document.querySelector(".hobbies-slider")
+
+if (hobbiesPrevBtn && hobbiesNextBtn && hobbiesCarousel && hobbiesSlider) {
+  const hobbyCardWidth = 420
+  const hobbyGap = 32
+  const hobbyScrollAmount = hobbyCardWidth + hobbyGap
+
+  const stopAutoScroll = startOnePassAutoScroll(hobbiesCarousel, 18000)
+  
+  hobbiesPrevBtn.addEventListener("click", () => {
+    stopAutoScroll()
+    hobbiesCarousel.scrollLeft -= hobbyScrollAmount
+  })
+
+  hobbiesNextBtn.addEventListener("click", () => {
+    stopAutoScroll()
+    hobbiesCarousel.scrollLeft += hobbyScrollAmount
+  })
+
+  startOnePassAutoScroll(hobbiesCarousel, 18000)
+}
+
 /* Articles - no carousel needed */
 
 /* Scroll sections (active link) */
