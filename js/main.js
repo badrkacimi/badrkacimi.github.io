@@ -235,6 +235,43 @@ if (hobbiesPrevBtn && hobbiesNextBtn && hobbiesCarousel && hobbiesSlider) {
 
 /* Articles - no carousel needed */
 
+/* Infinite Scroll Carousel Setup */
+const setupInfiniteScroll = (carousel, slider) => {
+  if (!carousel || !slider) return
+
+  // Clone all items to create infinite loop
+  const items = slider.querySelectorAll('[class*="card"]')
+  if (items.length === 0) return
+
+  // Store original items
+  const originalHTML = slider.innerHTML
+  
+  // Clone items and append them
+  items.forEach(item => {
+    const clone = item.cloneNode(true)
+    slider.appendChild(clone)
+  })
+
+  // Handle seamless looping
+  carousel.addEventListener('scroll', () => {
+    const scrollLeft = carousel.scrollLeft
+    const itemCount = items.length
+    const singleSetWidth = slider.scrollWidth / 2 // half because we duplicated
+
+    // When we've scrolled past the original items, reset to start
+    if (scrollLeft >= singleSetWidth - carousel.clientWidth / 2) {
+      carousel.scrollLeft = 0
+    }
+  }, { passive: true })
+}
+
+// Apply infinite scroll to all carousels
+setupInfiniteScroll(experienceCarousel, experienceSlider)
+setupInfiniteScroll(eventsCarousel, eventsSlider)
+setupInfiniteScroll(videosCarousel, videosSlider)
+setupInfiniteScroll(hobbiesCarousel, hobbiesSlider)
+setupInfiniteScroll(certsCarousel, certsSlider)
+
 /* Scroll sections (active link) */
 const sections = document.querySelectorAll("section[id]")
 
