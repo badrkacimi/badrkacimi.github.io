@@ -143,7 +143,7 @@ if (eventsPrevBtn && eventsNextBtn && eventsCarousel && eventsSlider) {
   startOnePassAutoScroll(eventsCarousel)
 }
 
-/* Videos Carousel Navigation */
+/* Videos Carousel Navigation (autoplay + infinite reset) */
 const videosPrevBtn = document.getElementById("videosPrevBtn")
 const videosNextBtn = document.getElementById("videosNextBtn")
 const videosCarousel = document.querySelector(".videos-carousel")
@@ -154,19 +154,42 @@ if (videosPrevBtn && videosNextBtn && videosCarousel && videosSlider) {
   const videoGap = 32
   const videoScrollAmount = videoCardWidth + videoGap
 
-  const stopAutoScroll = startOnePassAutoScroll(videosCarousel, 20000)
-  
+  let autoIntervalId = null
+
+  const startAuto = (interval = 3500) => {
+    if (autoIntervalId) clearInterval(autoIntervalId)
+    autoIntervalId = setInterval(() => {
+      // If we're at (or near) the end of the duplicated slider, jump back to start
+      if (videosCarousel.scrollLeft + videosCarousel.clientWidth >= videosSlider.scrollWidth - 10) {
+        videosCarousel.scrollLeft = 0
+      } else {
+        videosCarousel.scrollBy({ left: videoScrollAmount, behavior: "smooth" })
+      }
+    }, interval)
+  }
+
+  const stopAuto = () => {
+    if (autoIntervalId) {
+      clearInterval(autoIntervalId)
+      autoIntervalId = null
+    }
+  }
+
   videosPrevBtn.addEventListener("click", () => {
-    stopAutoScroll()
-    videosCarousel.scrollLeft -= videoScrollAmount
+    stopAuto()
+    videosCarousel.scrollBy({ left: -videoScrollAmount, behavior: "smooth" })
   })
 
   videosNextBtn.addEventListener("click", () => {
-    stopAutoScroll()
-    videosCarousel.scrollLeft += videoScrollAmount
+    stopAuto()
+    videosCarousel.scrollBy({ left: videoScrollAmount, behavior: "smooth" })
   })
 
-  startOnePassAutoScroll(videosCarousel, 20000)
+  videosCarousel.addEventListener("mouseenter", stopAuto)
+  videosCarousel.addEventListener("mouseleave", () => startAuto(3500))
+
+  // Start autoplay
+  startAuto(3500)
 }
 
 /* Video play button — embed YouTube iframe on click */
@@ -265,12 +288,13 @@ const setupInfiniteScroll = (carousel, slider) => {
   }, { passive: true })
 }
 
-// Apply infinite scroll to all carousels
-setupInfiniteScroll(experienceCarousel, experienceSlider)
-setupInfiniteScroll(eventsCarousel, eventsSlider)
-setupInfiniteScroll(videosCarousel, videosSlider)
-setupInfiniteScroll(hobbiesCarousel, hobbiesSlider)
-setupInfiniteScroll(certsCarousel, certsSlider)
+// Disable infinite scroll for all carousels - just scroll normally
+// (Infinite scroll was duplicating items and causing looping issues)
+// setupInfiniteScroll(experienceCarousel, experienceSlider)
+// setupInfiniteScroll(eventsCarousel, eventsSlider)
+// setupInfiniteScroll(videosCarousel, videosSlider)
+// setupInfiniteScroll(hobbiesCarousel, hobbiesSlider)
+// setupInfiniteScroll(certsCarousel, certsSlider)
 
 /* Scroll sections (active link) */
 const sections = document.querySelectorAll("section[id]")

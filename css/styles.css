@@ -203,6 +203,48 @@ img {
   font-weight: var(--font-medium);
 }
 
+/* Intro blurb displayed before a section (styled card + pill list) */
+.section-intro {
+  background: linear-gradient(180deg, rgba(76, 175, 80, 0.03), rgba(74, 144, 211, 0.02));
+  border: 1px solid var(--border-color);
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-sm);
+  margin: 1.5rem 0 2rem;
+}
+
+.section-intro p {
+  margin: 0 0 0.75rem 0;
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+  text-align: center;
+}
+
+.section-intro ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.section-intro li {
+  background: var(--container-color);
+  border: 1px solid var(--border-color);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: var(--small-font-size);
+  color: var(--title-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.dark-theme .section-intro {
+  background: linear-gradient(180deg, rgba(30,41,59,0.02), rgba(26,35,50,0.01));
+  border-color: rgba(255,255,255,0.04);
+}
+
 .section-title,
 .section-subtitle {
   text-align: center;
