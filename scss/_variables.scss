@@ -22,7 +22,11 @@
     
     --scroll-bar-color: #e2e8f0;
     --scroll-thumb-color: #cbd5e0;
-    
+
+    /* Feedback colors */
+    --success-color: #22c55e;
+    --error-color: #ef4444;
+
     /* Soft shadows for professional look */
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -96,4 +100,7 @@ body.dark-theme {
     
     --scroll-bar-color: #334155;
     --scroll-thumb-color: #475569;
+
+    --success-color: #34d399;
+    --error-color: #f87171;
 }

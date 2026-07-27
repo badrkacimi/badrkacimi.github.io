@@ -23,7 +23,11 @@
   
   --scroll-bar-color: #e2e8f0;
   --scroll-thumb-color: #cbd5e0;
-  
+
+  /* Feedback colors */
+  --success-color: #22c55e;
+  --error-color: #ef4444;
+
   /* Soft shadows for professional look */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -97,6 +101,9 @@ body.dark-theme {
   
   --scroll-bar-color: #334155;
   --scroll-thumb-color: #475569;
+
+  --success-color: #34d399;
+  --error-color: #f87171;
 }
 
 /* Base */
@@ -2653,4 +2660,90 @@ body.dark-theme .home-container .home-content .home-data-title {
   .footer-links .footer-link {
     margin-left: var(--mb-1);
   }
-}/*# sourceMappingURL=styles.css.map */
+}
+
+/* Toast notifications */
+.toast-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: var(--z-modal);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: min(360px, calc(100vw - 2rem));
+}
+
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background-color: var(--container-color);
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-lg);
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--success-color);
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.toast.toast-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.toast.toast-error {
+  border-left-color: var(--error-color);
+}
+.toast.toast-error .toast-icon {
+  color: var(--error-color);
+}
+.toast[dir=rtl] {
+  border-left: none;
+  border-right: 4px solid var(--success-color);
+  text-align: right;
+}
+.toast[dir=rtl].toast-error {
+  border-right-color: var(--error-color);
+}
+.toast .toast-icon {
+  font-size: 1.375rem;
+  color: var(--success-color);
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.toast .toast-content {
+  flex: 1;
+  min-width: 0;
+}
+.toast .toast-title {
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+  margin-bottom: 0.15rem;
+}
+.toast .toast-text {
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+  line-height: 1.4;
+}
+.toast .toast-close {
+  background: none;
+  border: none;
+  color: var(--subtle-text);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.1rem;
+  flex-shrink: 0;
+}
+.toast .toast-close:hover {
+  color: var(--text-color);
+}
+
+@media screen and (max-width: 400px) {
+  .toast-container {
+    left: 1rem;
+    right: 1rem;
+    max-width: none;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

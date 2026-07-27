@@ -287,17 +287,158 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 })
 
+/* Toast notifications (multilingual, based on the contact message's language) */
+const toastMessages = {
+  en: {
+    success: { title: "Message sent!", text: "Thanks for reaching out — I'll get back to you soon." },
+    error: { title: "Something went wrong", text: "Your message couldn't be sent. Please try again or email me directly." }
+  },
+  fr: {
+    success: { title: "Message envoyé !", text: "Merci de m'avoir contacté, je vous répondrai bientôt." },
+    error: { title: "Une erreur est survenue", text: "Votre message n'a pas pu être envoyé. Réessayez ou écrivez-moi directement." }
+  },
+  nl: {
+    success: { title: "Bericht verzonden!", text: "Bedankt voor je bericht, ik neem snel contact met je op." },
+    error: { title: "Er is iets misgegaan", text: "Je bericht kon niet worden verzonden. Probeer het opnieuw of mail me rechtstreeks." }
+  },
+  es: {
+    success: { title: "¡Mensaje enviado!", text: "Gracias por escribirme, te responderé pronto." },
+    error: { title: "Algo salió mal", text: "Tu mensaje no se pudo enviar. Inténtalo de nuevo o escríbeme directamente." }
+  },
+  de: {
+    success: { title: "Nachricht gesendet!", text: "Danke für deine Nachricht, ich melde mich bald bei dir." },
+    error: { title: "Etwas ist schiefgelaufen", text: "Deine Nachricht konnte nicht gesendet werden. Versuche es erneut oder schreib mir direkt." }
+  },
+  ar: {
+    success: { title: "تم إرسال الرسالة!", text: "شكراً لتواصلك معي، سأرد عليك قريباً." },
+    error: { title: "حدث خطأ ما", text: "تعذر إرسال رسالتك. حاول مرة أخرى أو راسلني مباشرة." }
+  }
+}
+
+const languageKeywords = {
+  fr: ["bonjour", "salut", "merci", "etre", "avec", "pour", "vous", "tres", "cordialement", "sincerement", "projet", "interesse", "interessee", "disponible", "entreprise", "equipe", "aussi", "alors", "donc", "mais", "nous", "votre", "notre", "serait", "voudrais", "pouvez", "contacter", "je suis"],
+  nl: ["hallo", "dag", "alstublieft", "graag", "groet", "groeten", "bedankt", "dank", "bedrijf", "geinteresseerd", "beschikbaar", "vriendelijke", "mogelijkheid", "zou", "kunt", "ik ben"],
+  es: ["hola", "gracias", "saludos", "cordialmente", "atentamente", "interesado", "interesada", "disponible", "empresa", "proyecto", "quisiera", "gustaria", "podria", "contactar", "equipo", "tambien", "pero", "usted"],
+  de: ["hallo", "danke", "bitte", "freundlichen", "gruessen", "grussen", "projekt", "interessiert", "verfuegbar", "unternehmen", "kontaktieren", "gerne", "herzlich", "auch", "aber", "koennen", "moechte", "ich bin"]
+}
+
+function stripDiacritics(text) {
+  return text.normalize("NFD").replace(/[̀-ͯ]/g, "")
+}
+
+function detectMessageLanguage(text) {
+  if (!text) return "en"
+  const trimmed = text.trim()
+  if (/[؀-ۿ]/.test(trimmed)) return "ar"
+
+  const lowerRaw = trimmed.toLowerCase()
+  const lowerAscii = stripDiacritics(lowerRaw)
+
+  const scores = { fr: 0, nl: 0, es: 0, de: 0 }
+
+  if (/[éèêëàâùûôçœ]/.test(lowerRaw)) scores.fr += 2
+  if (/[ëïĳ]/.test(lowerRaw)) scores.nl += 1
+  if (/[ñáíóú¿¡]/.test(lowerRaw)) scores.es += 2
+  if (/[äöüß]/.test(lowerRaw)) scores.de += 2
+
+  Object.keys(languageKeywords).forEach((lang) => {
+    languageKeywords[lang].forEach((word) => {
+      const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+      const pattern = new RegExp("\\b" + escaped + "\\b", "i")
+      if (pattern.test(lowerAscii)) scores[lang] += 1
+    })
+  })
+
+  let bestLang = "en"
+  let bestScore = 0
+  Object.keys(scores).forEach((lang) => {
+    if (scores[lang] > bestScore) {
+      bestScore = scores[lang]
+      bestLang = lang
+    }
+  })
+
+  return bestLang
+}
+
+function getToastContainer() {
+  let container = document.querySelector(".toast-container")
+  if (!container) {
+    container = document.createElement("div")
+    container.className = "toast-container"
+    document.body.appendChild(container)
+  }
+  return container
+}
+
+function showToast(type, lang) {
+  const dict = toastMessages[lang] || toastMessages.en
+  const content = dict[type] || toastMessages.en[type]
+
+  const toast = document.createElement("div")
+  toast.className = "toast" + (type === "error" ? " toast-error" : "")
+  if (lang === "ar") toast.dir = "rtl"
+
+  const icon = document.createElement("i")
+  icon.className = "toast-icon fas " + (type === "error" ? "fa-exclamation-circle" : "fa-check-circle")
+
+  const body = document.createElement("div")
+  body.className = "toast-content"
+
+  const title = document.createElement("p")
+  title.className = "toast-title"
+  title.textContent = content.title
+
+  const text = document.createElement("p")
+  text.className = "toast-text"
+  text.textContent = content.text
+
+  body.appendChild(title)
+  body.appendChild(text)
+
+  const closeBtn = document.createElement("button")
+  closeBtn.className = "toast-close"
+  closeBtn.setAttribute("aria-label", "Close notification")
+  const closeIcon = document.createElement("i")
+  closeIcon.className = "fas fa-times"
+  closeBtn.appendChild(closeIcon)
+
+  toast.appendChild(icon)
+  toast.appendChild(body)
+  toast.appendChild(closeBtn)
+
+  const container = getToastContainer()
+  container.appendChild(toast)
+
+  requestAnimationFrame(() => toast.classList.add("toast-show"))
+
+  const dismiss = () => {
+    toast.classList.remove("toast-show")
+    setTimeout(() => toast.remove(), 300)
+  }
+
+  const autoDismiss = setTimeout(dismiss, 6000)
+  closeBtn.addEventListener("click", () => {
+    clearTimeout(autoDismiss)
+    dismiss()
+  })
+}
+
 document.getElementById('contact-form').addEventListener('submit', function (event) {
   event.preventDefault()
+
+  const messageField = document.getElementById('message')
+  const lang = detectMessageLanguage(messageField ? messageField.value : '')
+  const form = this
 
   emailjs.sendForm('service_k16cehm', 'template_cq4lg79', this)
     .then(function (response) {
       console.log('Success!', response.status, response.text)
-      alert('Email sent! Against all odds, it worked!')
-      document.getElementById('contact-form').reset()
+      showToast('success', lang)
+      form.reset()
     }, function (error) {
       console.log('Failed...', error)
-      alert('Email sending failed.')
+      showToast('error', lang)
     })
 })
 
