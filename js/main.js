@@ -28,32 +28,6 @@ navLink.forEach((n) => n.addEventListener("click", linkAction))
 
 
 
-/* Experience tabs */
-const tabs = document.querySelectorAll("[data-target]"),
-  tabContents = document.querySelectorAll("[data-content]")
-
-tabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    const target = document.querySelector(tab.dataset.target)
-
-    tabContents.forEach((tabContent) => {
-      tabContent.classList.remove("experience-active")
-    })
-    target.classList.add("experience-active")
-
-    tabs.forEach((tab) => {
-      tab.classList.remove("experience-active")
-    })
-    tab.classList.add("experience-active")
-  })
-})
-
-/* Experience Carousel Navigation */
-const prevBtn = document.getElementById("prevBtn")
-const nextBtn = document.getElementById("nextBtn")
-const experienceCarousel = document.querySelector(".experience-carousel")
-const experienceSlider = document.querySelector(".experience-slider")
-
 const startOnePassAutoScroll = (carousel, duration = 18000, delay = 2000) => {
   if (!carousel) return
   const maxScroll = carousel.scrollWidth - carousel.clientWidth
@@ -83,24 +57,6 @@ const startOnePassAutoScroll = (carousel, duration = 18000, delay = 2000) => {
   }, delay)
 
   return stop
-}
-
-if (prevBtn && nextBtn && experienceCarousel && experienceSlider) {
-  const cardWidth = 350 // card width
-  const gap = 32 // gap between cards
-  const scrollAmount = cardWidth + gap
-  
-  const stopAutoScroll = startOnePassAutoScroll(experienceCarousel)
-  
-  prevBtn.addEventListener("click", () => {
-    stopAutoScroll()
-    experienceCarousel.scrollLeft -= scrollAmount
-  })
-
-  nextBtn.addEventListener("click", () => {
-    stopAutoScroll()
-    experienceCarousel.scrollLeft += scrollAmount
-  })
 }
 
 /* Auto-tag events as Past / Upcoming */
@@ -139,8 +95,6 @@ if (eventsPrevBtn && eventsNextBtn && eventsCarousel && eventsSlider) {
     stopAutoScroll()
     eventsCarousel.scrollLeft += eventScrollAmount
   })
-
-  startOnePassAutoScroll(eventsCarousel)
 }
 
 /* Videos Carousel Navigation (autoplay + infinite reset) */
@@ -226,8 +180,6 @@ if (certsPrevBtn && certsNextBtn && certsCarousel && certsSlider) {
     stopAutoScroll()
     certsCarousel.scrollLeft += certScrollAmount
   })
-
-  startOnePassAutoScroll(certsCarousel, 16000)
 }
 
 /* Hobbies Carousel Navigation */
@@ -252,49 +204,7 @@ if (hobbiesPrevBtn && hobbiesNextBtn && hobbiesCarousel && hobbiesSlider) {
     stopAutoScroll()
     hobbiesCarousel.scrollLeft += hobbyScrollAmount
   })
-
-  startOnePassAutoScroll(hobbiesCarousel, 18000)
 }
-
-/* Articles - no carousel needed */
-
-/* Infinite Scroll Carousel Setup */
-const setupInfiniteScroll = (carousel, slider) => {
-  if (!carousel || !slider) return
-
-  // Clone all items to create infinite loop
-  const items = slider.querySelectorAll('[class*="card"]')
-  if (items.length === 0) return
-
-  // Store original items
-  const originalHTML = slider.innerHTML
-  
-  // Clone items and append them
-  items.forEach(item => {
-    const clone = item.cloneNode(true)
-    slider.appendChild(clone)
-  })
-
-  // Handle seamless looping
-  carousel.addEventListener('scroll', () => {
-    const scrollLeft = carousel.scrollLeft
-    const itemCount = items.length
-    const singleSetWidth = slider.scrollWidth / 2 // half because we duplicated
-
-    // When we've scrolled past the original items, reset to start
-    if (scrollLeft >= singleSetWidth - carousel.clientWidth / 2) {
-      carousel.scrollLeft = 0
-    }
-  }, { passive: true })
-}
-
-// Disable infinite scroll for all carousels - just scroll normally
-// (Infinite scroll was duplicating items and causing looping issues)
-// setupInfiniteScroll(experienceCarousel, experienceSlider)
-// setupInfiniteScroll(eventsCarousel, eventsSlider)
-// setupInfiniteScroll(videosCarousel, videosSlider)
-// setupInfiniteScroll(hobbiesCarousel, hobbiesSlider)
-// setupInfiniteScroll(certsCarousel, certsSlider)
 
 /* Scroll sections (active link) */
 const sections = document.querySelectorAll("section[id]")

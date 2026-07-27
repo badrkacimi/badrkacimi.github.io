@@ -2635,18 +2635,6 @@ body.dark-theme .home-container .home-content .home-data-title {
     -moz-column-gap: 5rem;
          column-gap: 5rem;
   }
-  .swiper-articles-icon {
-    font-size: 3rem !important;
-  }
-  .swiper-button-prev {
-    left: -3.5rem !important;
-  }
-  .swiper-button-next {
-    right: -3.5rem !important;
-  }
-  .swiper-container-horizontal > .swiper-pagination-bullets {
-    bottom: -4.5rem;
-  }
   .footer-container {
     display: flex;
     justify-content: space-between;
