@@ -1309,6 +1309,14 @@ body.dark-theme .home-container .home-content .home-data-title {
   transform: scale(1.06);
 }
 
+.event-card-banner.event-card-banner-contain {
+  background-color: var(--container-color);
+}
+.event-card-banner.event-card-banner-contain img {
+  object-fit: contain;
+  padding: 1rem;
+}
+
 /* Card body */
 .event-card-body {
   padding: 1.25rem 1.25rem 0.75rem;

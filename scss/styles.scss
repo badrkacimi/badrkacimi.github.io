@@ -574,6 +574,15 @@ img {
         object-fit: cover;
         transition: transform 0.4s ease;
     }
+
+    &.event-card-banner-contain {
+        background-color: var(--container-color);
+
+        img {
+            object-fit: contain;
+            padding: 1rem;
+        }
+    }
 }
 
 .event-card-body {
